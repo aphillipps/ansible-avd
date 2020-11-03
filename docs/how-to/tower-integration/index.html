@@ -1,0 +1,1401 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Arista Validated Design collection's documentation">
+      
+      
+      
+        <meta name="author" content="Arista Ansible Team">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>AWX & Tower Integration - Arista AVD collection</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.a676eddb.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.material.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#avd-cvp-playbooks-integration-in-awxtower" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../.." title="Arista AVD collection" class="md-header-nav__button md-logo" aria-label="Arista AVD collection">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Arista AVD collection
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              AWX & Tower Integration
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/aristanetworks/ansible-avd/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AVD on Github
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Arista AVD collection" class="md-nav__button md-logo" aria-label="Arista AVD collection">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    Arista AVD collection
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/aristanetworks/ansible-avd/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AVD on Github
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Release Notes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Release Notes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release-notes/1.1.x/" title="1.1.x" class="md-nav__link">
+      1.1.x
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release-notes/1.0.x/" title="1.0.x" class="md-nav__link">
+      1.0.x
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Installation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Installation" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Installation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../installation/requirements/" title="Requirements" class="md-nav__link">
+      Requirements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../installation/setup-environement/" title="Setup environment" class="md-nav__link">
+      Setup environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../installation/setup-galaxy/" title="Ansible-galaxy installation" class="md-nav__link">
+      Ansible-galaxy installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../installation/setup-git/" title="Git installation" class="md-nav__link">
+      Git installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../installation/development/" title="Development tips & tricks" class="md-nav__link">
+      Development tips & tricks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      How-To
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="How-To" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        How-To
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../first-project/" title="Build your first AVD project" class="md-nav__link">
+      Build your first AVD project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../first-cvp-avd-project/" title="Build your first AVD & CVP project" class="md-nav__link">
+      Build your first AVD & CVP project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lab-with-nat/" title="Use NAT to access eAPI" class="md-nav__link">
+      Use NAT to access eAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        AWX & Tower Integration
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="AWX & Tower Integration" class="md-nav__link md-nav__link--active">
+      AWX & Tower Integration
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#avd-cvp-playbooks-integration-in-awxtower" class="md-nav__link">
+    AVD &amp; CVP Playbooks integration in AWX/Tower
+  </a>
+  
+    <nav class="md-nav" aria-label="AVD &amp; CVP Playbooks integration in AWX/Tower">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#about" class="md-nav__link">
+    About
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-python-requirements" class="md-nav__link">
+    Install Python requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Python requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-virtual-environment" class="md-nav__link">
+    Create virtual-environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provision-virtual-environment" class="md-nav__link">
+    Provision virtual-environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-avd-project-on-awx" class="md-nav__link">
+    Create AVD project on AWX
+  </a>
+  
+    <nav class="md-nav" aria-label="Create AVD project on AWX">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-project-resource" class="md-nav__link">
+    Create a project resource
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-inventory-resource" class="md-nav__link">
+    Create Inventory resource
+  </a>
+  
+    <nav class="md-nav" aria-label="Create Inventory resource">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-inventory" class="md-nav__link">
+    Create Inventory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-source" class="md-nav__link">
+    Add source
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-playbook-resource" class="md-nav__link">
+    Create Playbook resource
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-avd-playbook" class="md-nav__link">
+    Update AVD playbook
+  </a>
+  
+    <nav class="md-nav" aria-label="Update AVD playbook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-install-collection-within-project" class="md-nav__link">
+    How to install collection within project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-change-to-work-with-avd-and-awx" class="md-nav__link">
+    What to change to work with AVD and AWX
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-your-playbook" class="md-nav__link">
+    Run your playbook
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Roles documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Roles documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Roles documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../roles/eos_l3ls_evpn/" title="eos_l3ls_evpn" class="md-nav__link">
+      eos_l3ls_evpn
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../roles/eos_cli_config_gen/" title="eos_cli_config_gen" class="md-nav__link">
+      eos_cli_config_gen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../roles/cvp_configlet_upload/" title="cvp_configlet_upload" class="md-nav__link">
+      cvp_configlet_upload
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../roles/eos_config_deploy_cvp/" title="eos_config_deploy_cvp" class="md-nav__link">
+      eos_config_deploy_cvp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../roles/eos_config_deploy_eapi/" title="eos_config_deploy_eapi" class="md-nav__link">
+      eos_config_deploy_eapi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../roles/eos_validate_state/" title="eos_validate_state" class="md-nav__link">
+      eos_validate_state
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../roles/build_output_folders/" title="build_output_folders" class="md-nav__link">
+      build_output_folders
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../roles/upgrade_tools/" title="upgrade_tools" class="md-nav__link">
+      upgrade_tools
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Modules documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Modules documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Modules documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/inventory_to_container.rst/" title="Module Inventory to containers" class="md-nav__link">
+      Module Inventory to containers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/configlet_build_config.rst/" title="Module Configlet Build configuration" class="md-nav__link">
+      Module Configlet Build configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      External resources
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="External resources" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        External resources
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html" title="Ansible collection user guide" class="md-nav__link">
+      Ansible collection user guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://docs.ansible.com/ansible/latest/user_guide/index.html" title="Ansible User guide" class="md-nav__link">
+      Ansible User guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      About
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="About" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../contributing/" title="Contribution Guide" class="md-nav__link">
+      Contribution Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://galaxy.ansible.com/arista/cvp" title="Ansible Galaxy page" class="md-nav__link">
+      Ansible Galaxy page
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/aristanetworks/ansible-avd" title="Arista AVD Modules" class="md-nav__link">
+      Arista AVD Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/arista-netdevops-community/avd-install" title="Arista Installation Script" class="md-nav__link">
+      Arista Installation Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/aristanetworks/netdevops-examples" title="Arista Automation Examples" class="md-nav__link">
+      Arista Automation Examples
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#avd-cvp-playbooks-integration-in-awxtower" class="md-nav__link">
+    AVD &amp; CVP Playbooks integration in AWX/Tower
+  </a>
+  
+    <nav class="md-nav" aria-label="AVD &amp; CVP Playbooks integration in AWX/Tower">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#about" class="md-nav__link">
+    About
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-python-requirements" class="md-nav__link">
+    Install Python requirements
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Python requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-virtual-environment" class="md-nav__link">
+    Create virtual-environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#provision-virtual-environment" class="md-nav__link">
+    Provision virtual-environment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-avd-project-on-awx" class="md-nav__link">
+    Create AVD project on AWX
+  </a>
+  
+    <nav class="md-nav" aria-label="Create AVD project on AWX">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-project-resource" class="md-nav__link">
+    Create a project resource
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-inventory-resource" class="md-nav__link">
+    Create Inventory resource
+  </a>
+  
+    <nav class="md-nav" aria-label="Create Inventory resource">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-inventory" class="md-nav__link">
+    Create Inventory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-source" class="md-nav__link">
+    Add source
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-playbook-resource" class="md-nav__link">
+    Create Playbook resource
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-avd-playbook" class="md-nav__link">
+    Update AVD playbook
+  </a>
+  
+    <nav class="md-nav" aria-label="Update AVD playbook">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-to-install-collection-within-project" class="md-nav__link">
+    How to install collection within project
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-to-change-to-work-with-avd-and-awx" class="md-nav__link">
+    What to change to work with AVD and AWX
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-your-playbook" class="md-nav__link">
+    Run your playbook
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/aristanetworks/ansible-avd/edit/master/docs/docs/how-to/tower-integration.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                  <h1>AWX & Tower Integration</h1>
+                
+                <h2 id="avd-cvp-playbooks-integration-in-awxtower">AVD &amp; CVP Playbooks integration in AWX/Tower<a class="headerlink" href="#avd-cvp-playbooks-integration-in-awxtower" title="Permanent link">#</a></h2>
+<h3 id="about">About<a class="headerlink" href="#about" title="Permanent link">#</a></h3>
+<p>This example shows how to deploy basic <strong>EVPN/VXLAN Fabric</strong> based on <strong><a href="https://github.com/aristanetworks/ansible-avd">Arista Validated Design roles</a></strong> using Ansible Tower/AWX. This repository will be used as project on AWX and we will describe how to configure Tower for the following topics:</p>
+<ul>
+<li>Create a project</li>
+<li>Create inventory</li>
+<li>Install collections</li>
+<li>Install python requirements</li>
+</ul>
+<p>All these elements are part of a dedicated demo repository available at <a href="https://github.com/arista-netdevops-community/avd-with-ansible-tower-awx">arista-netdevops-community/avd-with-ansible-tower-awx</a></p>
+<p>If you want to see how to build your inventory and all related variables, it is recommended to read following documentation:</p>
+<ul>
+<li><a href="https://www.avd.sh/docs/how-to/first-project/">How to start</a></li>
+<li><a href="https://www.avd.sh/roles/eos_l3ls_evpn/">L3LS EVPN Abstraction role</a></li>
+</ul>
+<h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h3>
+<p>To play with this repsoitory, you need:</p>
+<ul>
+<li>An AWX setup running on either Docker Compose or Kubernetes. All the commands for Python configuration will be done on docker-compose, but you can adapt for kubernetes.</li>
+<li>Understanding of how to configure AVD in a pure Ansible CLI way.</li>
+</ul>
+<h3 id="install-python-requirements">Install Python requirements<a class="headerlink" href="#install-python-requirements" title="Permanent link">#</a></h3>
+<p>Ansible CVP collection comes with a needs of <a href="hhttps://github.com/arista-netdevops-community/avd-with-ansible-tower-awx/blob/master/requirements.txt">additional libraries</a> not part of a standard Python setup:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">ansible</span><span class="o">==</span><span class="m">2</span>.9.6
+<span class="nv">netaddr</span><span class="o">==</span><span class="m">0</span>.7.19
+<span class="nv">Jinja2</span><span class="o">==</span><span class="m">2</span>.10.3
+<span class="nv">requests</span><span class="o">==</span><span class="m">2</span>.22.0
+<span class="nv">treelib</span><span class="o">==</span><span class="m">1</span>.5.5
+<span class="nv">cvprac</span><span class="o">==</span><span class="m">1</span>.0.4
+<span class="nv">paramiko</span><span class="o">==</span><span class="m">2</span>.7.1
+<span class="nv">jsonschema</span><span class="o">==</span><span class="m">3</span>.2.0
+</code></pre></div>
+<h4 id="create-virtual-environment">Create virtual-environment<a class="headerlink" href="#create-virtual-environment" title="Permanent link">#</a></h4>
+<p>It is required to create <a href="https://medium.com/@mehdirashidi/setting-up-venv-in-awx-31c4f9952a46">virtual-env</a> to not impact other workflow already deployed on your Tower setup.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Docker status</span>
+tom@kube-tool:~$ docker ps
+CONTAINER ID        IMAGE                COMMAND                  CREATED             STATUS              PORTS                  NAMES
+4a4627b21f93        ansible/awx:15.0.0   <span class="s2">&quot;/usr/bin/tini -- /u…&quot;</span>   <span class="m">8</span> days ago          Up <span class="m">8</span> days           <span class="m">8052</span>/tcp               awx_task
+6ef41f162226        ansible/awx:15.0.0   <span class="s2">&quot;/usr/bin/tini -- /b…&quot;</span>   <span class="m">8</span> days ago          Up <span class="m">8</span> days           <span class="m">0</span>.0.0.0:80-&gt;8052/tcp   awx_web
+a2fd85d0cc86        postgres:10          <span class="s2">&quot;docker-entrypoint.s…&quot;</span>   <span class="m">8</span> days ago          Up <span class="m">8</span> days           <span class="m">5432</span>/tcp               awx_postgres
+573d03e33c44        redis                <span class="s2">&quot;docker-entrypoint.s…&quot;</span>   <span class="m">8</span> days ago          Up <span class="m">8</span> days           <span class="m">6379</span>/tcp               awx_redis
+
+<span class="c1"># Run shell in docker</span>
+tom@kube-tool:~$ docker <span class="nb">exec</span> -it awx_task bash
+
+$ sudo pip3 install virtualenv
+WARNING: Running pip install with root privileges is generally not a good idea. Try <span class="sb">`</span>pip3 install --user<span class="sb">`</span> instead.
+Requirement already satisfied: virtualenv in /usr/local/lib/python3.6/site-packages
+
+$ mkdir /opt/my-envs
+
+$ chmod <span class="m">0755</span> /opt/my-envs
+
+$ <span class="nb">cd</span> /opt/my-envs/
+
+$ python3 -m venv avd-venv
+</code></pre></div>
+<blockquote>
+<p>This configuration <a href="https://github.com/ansible/awx/issues/4140"><strong>MUST</strong></a> be replicated on both container <code>awx_task</code> and <code>awx_web</code></p>
+</blockquote>
+<p>Instruct AWX to register our new Virtual Environment folder:</p>
+<div class="highlight"><pre><span></span><code>$ curl -X PATCH <span class="s1">&#39;http://admin:password@&lt;IP-of-AWX-INSTANCE&gt;/api/v2/settings/system/&#39;</span> <span class="se">\</span>
+    -d <span class="s1">&#39;{&quot;CUSTOM_VENV_PATHS&quot;: [&quot;/opt/my-envs/&quot;]}&#39;</span> -H <span class="s1">&#39;Content-Type:application/json&#39;</span>
+
+<span class="o">{</span>
+    <span class="s2">&quot;ACTIVITY_STREAM_ENABLED&quot;</span>: true,
+    <span class="s2">&quot;ACTIVITY_STREAM_ENABLED_FOR_INVENTORY_SYNC&quot;</span>: false,
+    <span class="s2">&quot;ORG_ADMINS_CAN_SEE_ALL_USERS&quot;</span>: true,
+    <span class="s2">&quot;MANAGE_ORGANIZATION_AUTH&quot;</span>: true,
+    <span class="s2">&quot;TOWER_URL_BASE&quot;</span>: <span class="s2">&quot;http://10.83.28.163&quot;</span>,
+    <span class="s2">&quot;REMOTE_HOST_HEADERS&quot;</span>: <span class="o">[</span>
+        <span class="s2">&quot;REMOTE_ADDR&quot;</span>,
+        <span class="s2">&quot;REMOTE_HOST&quot;</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;PROXY_IP_ALLOWED_LIST&quot;</span>: <span class="o">[]</span>,
+    <span class="s2">&quot;LICENSE&quot;</span>: <span class="o">{}</span>,
+    <span class="s2">&quot;REDHAT_USERNAME&quot;</span>: <span class="s2">&quot;&quot;</span>,
+    <span class="s2">&quot;REDHAT_PASSWORD&quot;</span>: <span class="s2">&quot;&quot;</span>,
+    <span class="s2">&quot;AUTOMATION_ANALYTICS_URL&quot;</span>: <span class="s2">&quot;https://example.com&quot;</span>,
+    <span class="s2">&quot;INSTALL_UUID&quot;</span>: <span class="s2">&quot;f8a54d56-b1f3-4fdf-aa5b-9d6977d00eaa&quot;</span>,
+    <span class="s2">&quot;CUSTOM_VENV_PATHS&quot;</span>: <span class="o">[</span>
+        <span class="s2">&quot;/opt/my-envs&quot;</span>
+    <span class="o">]</span>,
+    <span class="s2">&quot;INSIGHTS_TRACKING_STATE&quot;</span>: false,
+    <span class="s2">&quot;AUTOMATION_ANALYTICS_LAST_GATHER&quot;</span>: null,
+    <span class="s2">&quot;AUTOMATION_ANALYTICS_GATHER_INTERVAL&quot;</span>: <span class="m">14400</span>
+<span class="o">}</span>
+</code></pre></div>
+<h4 id="provision-virtual-environment">Provision virtual-environment<a class="headerlink" href="#provision-virtual-environment" title="Permanent link">#</a></h4>
+<p>Before running playbook in a virtual-env, we have to install required libraries:</p>
+<div class="highlight"><pre><span></span><code>tom@kube-tool:~$ docker <span class="nb">exec</span> -it awx_task bash
+
+<span class="c1"># Activate virtual-env</span>
+$ <span class="nb">cd</span> /opt/my-envs/avd-venv
+$ <span class="nb">source</span> bin/activate
+
+<span class="c1"># Install ansible AWX base lib</span>
+$ pip3 install psutil
+
+<span class="c1"># Install project requirements</span>
+$ curl -fsSL https://raw.githubusercontent.com/aristanetworks/ansible-avd/devel/development/requirements.txt -o requirements.txt
+$ pip3 install -r requirements.txt
+</code></pre></div>
+<p>From here, you have a clean python environment with all the expected requirements installed on your AWX runner.</p>
+<h3 id="create-avd-project-on-awx">Create AVD project on AWX<a class="headerlink" href="#create-avd-project-on-awx" title="Permanent link">#</a></h3>
+<h4 id="create-a-project-resource">Create a project resource<a class="headerlink" href="#create-a-project-resource" title="Permanent link">#</a></h4>
+<p>First go to <strong>Resources &gt; Projects</strong> and create a new one using:</p>
+<ul>
+<li>SCM Type: <code>Git</code></li>
+<li>SCM Branch: <code>master</code></li>
+<li>Ansible Environment: <code>/your/path/to/venv</code></li>
+<li>SCM URL: <code>https://github.com/arista-netdevops-community/avd-with-ansible-tower-awx.git</code></li>
+</ul>
+<p><img alt="" src="../../_media/awx-create-project-venv.png" /></p>
+<p>This project will be used for 2 things:</p>
+<ul>
+<li>Get our inventory and all attached variables.</li>
+<li>Get our playbooks to run in AWX.</li>
+</ul>
+<h4 id="create-inventory-resource">Create Inventory resource<a class="headerlink" href="#create-inventory-resource" title="Permanent link">#</a></h4>
+<p>Next action is to create an inventory in AWX. It is a 2 step actions:</p>
+<h5 id="create-inventory">Create Inventory<a class="headerlink" href="#create-inventory" title="Permanent link">#</a></h5>
+<p>Go to <strong>Resources &gt; Inventory</strong></p>
+<p><img alt="" src="../../_media/awx-create-inventory.png" /></p>
+<p>Once ready, you need to add a source to your inventory</p>
+<h5 id="add-source">Add source<a class="headerlink" href="#add-source" title="Permanent link">#</a></h5>
+<p>In your inventory, select <strong>Sources</strong></p>
+<p><img alt="" src="../../_media/awx-inventory-add-source.png" /></p>
+<p>Then add a source using your existing project</p>
+<p><img alt="" src="../../_media/awx-create-source.png" /></p>
+<p>In our example, our inventory file is part of a subdirectory. So we had to type the path manually as it was not part of the suggestion list. Also, don&rsquo;t forget to specificy virtual-env to use with this inventory.</p>
+<p>Onc you click on <code>Save</code> button, select <strong>SYNC-ALL</strong> button to get all hosts part of your inventory:</p>
+<p><img alt="" src="../../_media/awx-inventory-add-source.png" /></p>
+<p>You should get all your devices in <strong>Resources &gt; Inventory &gt; Your inventory Name</strong></p>
+<p><img alt="" src="../../_media/awx-inventory-list-devices.png" /></p>
+<p>Now we can focus on playbook itself.</p>
+<h4 id="create-playbook-resource">Create Playbook resource<a class="headerlink" href="#create-playbook-resource" title="Permanent link">#</a></h4>
+<p>Go to <strong>Resources &gt; Templates</strong>.</p>
+<p>In this section you have to provide at least:</p>
+<ul>
+<li>Name of your Template: <em>Build Fabric Configuration &ndash; no-deploy</em></li>
+<li>Which inventory to use: <em>EMEA Demo</em></li>
+<li>Which project to use to get playbook: <em>AVD Demo with CVP</em></li>
+<li>Which playbook to use: <a href="https://github.com/arista-netdevops-community/avd-with-ansible-tower-awx/blob/master/playbooks/dc1-fabric-deploy-cvp.yml"><code>playbooks/dc1-fabric-deploy-cvp.yml</code></a></li>
+<li>Virtual Environment to use when running the playbook</li>
+</ul>
+<p>As AVD implements Ansible <code>TAGS</code>, we have specified <code>build</code> only, but you can adapt to your own setup.</p>
+<p><img alt="" src="../../_media/awx-create-template.png" /></p>
+<p>You can configure more than just one playbook, but we will focus on playbook definition as it is not an AWX user&rsquo;s guide.</p>
+<h3 id="update-avd-playbook">Update AVD playbook<a class="headerlink" href="#update-avd-playbook" title="Permanent link">#</a></h3>
+<h4 id="how-to-install-collection-within-project">How to install collection within project<a class="headerlink" href="#how-to-install-collection-within-project" title="Permanent link">#</a></h4>
+<p>Since AVD and CVP collection are not installed by default in AWX, you need to consider how to install them. You have 2 option: system wise or per project. Let&rsquo;s consider per project as it is easier to upgrade</p>
+<ul>
+<li>Create a folder named <code>collections</code> in your git project</li>
+<li>Create a YAML file named <a href="https://github.com/arista-netdevops-community/avd-with-ansible-tower-awx/blob/master/README.md"><code>requirements.yml</code></a> with the following structure:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">collections</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arista.avd</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1.1.0</span>
+  <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arista.cvp</span>
+    <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2.1.0</span>
+</code></pre></div>
+<h4 id="what-to-change-to-work-with-avd-and-awx">What to change to work with AVD and AWX<a class="headerlink" href="#what-to-change-to-work-with-avd-and-awx" title="Permanent link">#</a></h4>
+<p>Ansible has a default variable that point to inventory file used in playbook and named <code>{{ inventory_file }}</code>. Since AWX/Tower is using a database, this variable is not available anymore and <a href="https://github.com/ansible/awx/issues/5926">inventory file does not exist in such environment</a>.</p>
+<p>AVD use this variable to read inventory and to build container topology on Cloudvision. So to mitigate this behavior, a small warkaround is to add a task that download your inventory from your git repository and define <code>{{ inventory_file }}</code>:</p>
+<ul>
+<li>Define variable:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">#group_vars/all.yml</span>
+<span class="nn">---</span>
+<span class="nt">inventory_file</span><span class="p">:</span> <span class="s">&#39;/tmp/inventory.yml&#39;</span>
+</code></pre></div>
+<ul>
+<li>Update playbook</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Configuration deployment with CVP</span>
+  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">cv_server</span>
+  <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
+  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">collections</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arista.avd</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arista.cvp</span>
+  <span class="nt">tasks</span><span class="p">:</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Download Inventory file</span>
+      <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">build</span> <span class="p p-Indicator">]</span>
+      <span class="nt">get_url</span><span class="p">:</span>
+        <span class="nt">url</span><span class="p">:</span> <span class="s">&#39;https://raw.githubusercontent.com/titom73/avd-with-ansible-tower-awx/master/inventory/inventory.yml&#39;</span>
+        <span class="nt">dest</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">inventory_file</span><span class="nv"> </span><span class="s">}}&#39;</span>
+        <span class="nt">mode</span><span class="p">:</span> <span class="s">&#39;0755&#39;</span>
+      <span class="nt">delegate_to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+
+    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">run CVP provisioning</span>
+      <span class="nt">import_role</span><span class="p">:</span>
+        <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arista.avd.eos_config_deploy_cvp</span>
+      <span class="nt">vars</span><span class="p">:</span>
+        <span class="nt">container_root</span><span class="p">:</span> <span class="s">&#39;DC1_FABRIC&#39;</span>
+        <span class="nt">configlets_prefix</span><span class="p">:</span> <span class="s">&#39;DC1-AVD&#39;</span>
+        <span class="nt">device_filter</span><span class="p">:</span> <span class="s">&#39;DC1&#39;</span>
+        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+</code></pre></div>
+<h3 id="run-your-playbook">Run your playbook<a class="headerlink" href="#run-your-playbook" title="Permanent link">#</a></h3>
+<p>Under <strong>Resources &gt; Templates</strong> click on the rocket icon to start playbook execution</p>
+<p><img alt="" src="../../_media/awx-playbook-run.png" /></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../lab-with-nat/" title="Use NAT to access eAPI" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Use NAT to access eAPI
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../../../roles/eos_l3ls_evpn/" title="eos_l3ls_evpn" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                eos_l3ls_evpn
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 Arista Networks
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../..",
+          features: ["instant"],
+          search: Object.assign({
+            worker: "../../../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

@@ -31,13 +31,13 @@
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
-        <style>body,input{font-family:"Ubuntu",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
     
     
     
-      <link rel="stylesheet" href="docs/stylesheets/extra.css">
+      <link rel="stylesheet" href="docs/stylesheets/extra.material.css">
     
     
       
@@ -54,7 +54,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ansible-collection-for-arista-validated-designs-aristaavd" class="md-skip">
+        <a href="#ansible-collection-for-arista-validated-designs" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Ansible Collection For Arista Validated Designs - arista.avd
+              Home
             
           </span>
         </div>
@@ -128,7 +128,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    Github
+    AVD on Github
   </div>
 </a>
       </div>
@@ -169,7 +169,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    Github
+    AVD on Github
   </div>
 </a>
     </div>
@@ -180,19 +180,203 @@
       
       
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Home
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,9H17V7H3V9M3,13H17V11H3V13M3,17H17V15H3V17M19,17H21V15H19V17M19,7V9H21V7H19M19,13H21V11H19V13Z" /></svg>
+        </span>
+      </label>
+    
+    <a href="." title="Home" class="md-nav__link md-nav__link--active">
+      Home
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ansible-collection-for-arista-validated-designs" class="md-nav__link">
+    Ansible Collection For Arista Validated Designs
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansible Collection For Arista Validated Designs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#roles-overview" class="md-nav__link">
+    Roles Overview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-plugins" class="md-nav__link">
+    Custom Plugins
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-from-ansible-galaxy" class="md-nav__link">
+    Installation from ansible-galaxy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-playbooks" class="md-nav__link">
+    Example Playbooks
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    Contributing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+      
+      
+      
+
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
-    <label class="md-nav__link" for="nav-1">
+    <label class="md-nav__link" for="nav-2">
+      Release Notes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Release Notes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="docs/release-notes/1.1.x/" title="1.1.x" class="md-nav__link">
+      1.1.x
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="docs/release-notes/1.0.x/" title="1.0.x" class="md-nav__link">
+      1.0.x
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="docs/getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
       Installation
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Installation" data-md-level="1">
-      <label class="md-nav__title" for="nav-1">
+      <label class="md-nav__title" for="nav-4">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
@@ -209,6 +393,18 @@
   <li class="md-nav__item">
     <a href="docs/installation/requirements/" title="Requirements" class="md-nav__link">
       Requirements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="docs/installation/setup-environement/" title="Setup environment" class="md-nav__link">
+      Setup environment
     </a>
   </li>
 
@@ -243,8 +439,8 @@
 
 
   <li class="md-nav__item">
-    <a href="docs/installation/development/" title="Configure development environment" class="md-nav__link">
-      Configure development environment
+    <a href="docs/installation/development/" title="Development tips & tricks" class="md-nav__link">
+      Development tips & tricks
     </a>
   </li>
 
@@ -259,10 +455,76 @@
       
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      How-To
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="How-To" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        How-To
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="docs/getting-started/" title="Getting Started" class="md-nav__link">
-      Getting Started
+    <a href="docs/how-to/first-project/" title="Build your first AVD project" class="md-nav__link">
+      Build your first AVD project
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="docs/how-to/first-cvp-avd-project/" title="Build your first AVD & CVP project" class="md-nav__link">
+      Build your first AVD & CVP project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="docs/how-to/lab-with-nat/" title="Use NAT to access eAPI" class="md-nav__link">
+      Use NAT to access eAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="docs/how-to/tower-integration/" title="AWX & Tower Integration" class="md-nav__link">
+      AWX & Tower Integration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -273,16 +535,16 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-6">
       Roles documentation
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Roles documentation" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-6">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
@@ -357,8 +619,32 @@
 
 
   <li class="md-nav__item">
+    <a href="roles/eos_validate_state/" title="eos_validate_state" class="md-nav__link">
+      eos_validate_state
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="roles/build_output_folders/" title="build_output_folders" class="md-nav__link">
       build_output_folders
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="roles/upgrade_tools/" title="upgrade_tools" class="md-nav__link">
+      upgrade_tools
     </a>
   </li>
 
@@ -375,16 +661,16 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-7">
       Modules documentation
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="Modules documentation" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-7">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
@@ -429,16 +715,70 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-8">
+      External resources
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="External resources" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        External resources
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html" title="Ansible collection user guide" class="md-nav__link">
+      Ansible collection user guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://docs.ansible.com/ansible/latest/user_guide/index.html" title="Ansible User guide" class="md-nav__link">
+      Ansible User guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
       About
       <span class="md-nav__icon md-icon">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
       </span>
     </label>
     <nav class="md-nav" aria-label="About" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-9">
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
         </span>
@@ -477,8 +817,20 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/aristanetworks/ansible-cvp" title="Arista CloudVision Modules" class="md-nav__link">
-      Arista CloudVision Modules
+    <a href="https://github.com/aristanetworks/ansible-avd" title="Arista AVD Modules" class="md-nav__link">
+      Arista AVD Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/arista-netdevops-community/avd-install" title="Arista Installation Script" class="md-nav__link">
+      Arista Installation Script
     </a>
   </li>
 
@@ -514,8 +866,6 @@
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon">
@@ -526,20 +876,28 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#ansible-collection-for-arista-validated-designs" class="md-nav__link">
+    Ansible Collection For Arista Validated Designs
+  </a>
+  
+    <nav class="md-nav" aria-label="Ansible Collection For Arista Validated Designs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#roles-overview" class="md-nav__link">
     Roles Overview
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#custom-plugins" class="md-nav__link">
     Custom Plugins
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#installation" class="md-nav__link">
     Installation
   </a>
@@ -565,18 +923,30 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#example-playbooks" class="md-nav__link">
     Example Playbooks
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
+  <a href="#contributing" class="md-nav__link">
+    Contributing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#license" class="md-nav__link">
     License
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -600,10 +970,13 @@
                   
                 
                 
-                <h1 id="ansible-collection-for-arista-validated-designs-aristaavd">Ansible Collection For Arista Validated Designs - arista.avd<a class="headerlink" href="#ansible-collection-for-arista-validated-designs-aristaavd" title="Permanent link">#</a></h1>
+                  <h1>Home</h1>
+                
+                <h2 id="ansible-collection-for-arista-validated-designs">Ansible Collection For Arista Validated Designs<a class="headerlink" href="#ansible-collection-for-arista-validated-designs" title="Permanent link">#</a></h2>
+<p><center><img src="media/avd-logo.png" alt="Arista AVD Overview" width="800"/></center></p>
 <p><strong>Table of Contents:</strong></p>
 <ul>
-<li><a href="#ansible-collection-for-arista-validated-designs---aristaavd">Ansible Collection For Arista Validated Designs - arista.avd</a></li>
+<li><a href="#ansible-collection-for-arista-validated-designs">Ansible Collection For Arista Validated Designs</a><ul>
 <li><a href="#roles-overview">Roles Overview</a></li>
 <li><a href="#custom-plugins">Custom Plugins</a></li>
 <li><a href="#installation">Installation</a><ul>
@@ -612,24 +985,29 @@
 </ul>
 </li>
 <li><a href="#example-playbooks">Example Playbooks</a></li>
+<li><a href="#contributing">Contributing</a></li>
 <li><a href="#license">License</a></li>
 </ul>
-<h2 id="roles-overview">Roles Overview<a class="headerlink" href="#roles-overview" title="Permanent link">#</a></h2>
+</li>
+</ul>
+<h3 id="roles-overview">Roles Overview<a class="headerlink" href="#roles-overview" title="Permanent link">#</a></h3>
 <p>This repository provides roles for Ansible&rsquo;s collection <strong>arista.avd</strong> with the following content:</p>
 <ul>
 <li><a href="roles/eos_l3ls_evpn/"><strong>arista.avd.eos_l3ls_evpn</strong></a> - Opinionated Data model for deployment of L3 Leaf and Spine Fabric with VXLAN data-plane with an EVPN Control plane.</li>
 <li><a href="roles/eos_cli_config_gen/"><strong>arista.avd.eos_cli_config_gen</strong></a> - Generate Arista EOS cli syntax and device documentation.</li>
-<li><a href="roles/eos_config_deploy_cvp/"><strong>arista.avd.eos_config_deploy_cvp</strong></a> - deploys intended configuration via CloudVision.</li>
-<li><a href="roles/eos_config_deploy_eapi/"><strong>arista.avd.eos_config_deploy_eapi</strong></a> - deploys intended configuration via eAPI.</li>
+<li><a href="roles/eos_config_deploy_cvp/"><strong>arista.avd.eos_config_deploy_cvp</strong></a> - Deploys intended configuration via CloudVision.</li>
+<li><a href="roles/eos_config_deploy_eapi/"><strong>arista.avd.eos_config_deploy_eapi</strong></a> - Deploys intended configuration via eAPI.</li>
 <li><a href="roles/cvp_configlet_upload/"><strong>arista.avd.cvp_configlet_upload</strong></a> - Uploads configlets from a local folder to CloudVision Server.</li>
+<li><a href="roles/eos_validate_state/"><strong>arista.avd.eos_validate_state</strong></a> - Validate operational states of Arista EOS devices</li>
 </ul>
-<h2 id="custom-plugins">Custom Plugins<a class="headerlink" href="#custom-plugins" title="Permanent link">#</a></h2>
+<p><img alt="Arista AVD Overview" src="media/example-playbook-evpn-deploy-cvp.gif" /></p>
+<h3 id="custom-plugins">Custom Plugins<a class="headerlink" href="#custom-plugins" title="Permanent link">#</a></h3>
 <p>This repository provides custom plugins for Ansible&rsquo;s collection <strong>arista.avd</strong> :</p>
 <ul>
 <li><a href="plugins/">Arista AVD Plugins</a></li>
 </ul>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
-<h3 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h3>
+<h3 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h3>
+<h4 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h4>
 <p><strong>Arista EOS:</strong></p>
 <ul>
 <li>EOS 4.21.8M or later</li>
@@ -649,62 +1027,64 @@
 <li>netaddr <code>0.7.19</code></li>
 <li>requests <code>2.22.0</code></li>
 <li>treelib <code>1.5.5</code></li>
-<li>pytest <code>5.3.4</code></li>
-<li>pytest-html <code>2.0.1</code></li>
 <li>cvprac <code>1.0.4</code></li>
 </ul>
 <p><strong>Ansible + Additional Python Libraries Installation:</strong></p>
 <div class="highlight"><pre><span></span><code>pip3 install -r requirements.txt
 </code></pre></div>
-
 <p>requirements.txt content:</p>
 <div class="highlight"><pre><span></span><code>ansible==2.9.2
 Jinja2==2.10.3
 netaddr==0.7.19
 requests==2.22.0
 treelib==1.5.5
-pytest==5.3.4
-pytest-html==2.0.1
 cvprac==1.0.4
 </code></pre></div>
-
 <p><strong>Ansible Configuration INI file:</strong></p>
 <ul>
-<li>enable jinja2 extensions: loop controls and do</li>
+<li>enable jinja2 extensions: loop controls and do<ul>
 <li><a href="https://svn.python.org/projects/external/Jinja-2.1.1/docs/_build/html/extensions.html">Jinja2 Extensions Documentation</a></li>
+</ul>
+</li>
 <li>By default, Ansible will issue a warning when a duplicate dict key is encountered in YAML. We recommend to change to error instead and stop playbook execution when a duplicate key is detected.</li>
 </ul>
 <div class="highlight"><pre><span></span><code><span class="na">jinja2_extensions</span><span class="o">=</span><span class="s">jinja2.ext.loopcontrols,jinja2.ext.do</span>
 <span class="na">duplicate_dict_key</span><span class="o">=</span><span class="s">error</span>
 </code></pre></div>
-
-<h3 id="installation-from-ansible-galaxy">Installation from ansible-galaxy<a class="headerlink" href="#installation-from-ansible-galaxy" title="Permanent link">#</a></h3>
+<h4 id="installation-from-ansible-galaxy">Installation from ansible-galaxy<a class="headerlink" href="#installation-from-ansible-galaxy" title="Permanent link">#</a></h4>
 <p>Ansible galaxy hosts all stable version of this collection. Installation from ansible-galaxy is the most convenient approach for consuming <code>arista.avd</code> content</p>
 <div class="highlight"><pre><span></span><code>ansible-galaxy collection install arista.avd
 </code></pre></div>
-
-<h2 id="example-playbooks">Example Playbooks<a class="headerlink" href="#example-playbooks" title="Permanent link">#</a></h2>
+<h3 id="example-playbooks">Example Playbooks<a class="headerlink" href="#example-playbooks" title="Permanent link">#</a></h3>
 <p><strong>An example playbook to deploy VXLAN/EVPN Fabric via CloudVision:</strong></p>
-<p><img alt="Figure 1: Example Playbook CloudVision Deployment" src="media/figure-1-example-playbook-evpn-deploy-cvp.gif" /></p>
+<p><img alt="Figure 1: Example Playbook CloudVision Deployment" src="media/example-playbook-evpn-deploy-cvp.gif" /></p>
 <div class="highlight"><pre><span></span><code>- hosts: DC1_FABRIC
-
   tasks:
-
     - name: generate intended variables
       import_role:
          name: arista.avd.eos_l3ls_evpn
-
     - name: generate device intended config and documentation
       import_role:
          name: arista.avd.eos_cli_config_gen
 
+- hosts: CVP
+  tasks:
     - name: deploy configuration via CVP
       import_role:
          name: arista.avd.eos_config_deploy_cvp
 </code></pre></div>
+<p>Execute eos_state_validation playbook once change control has been approved and deployed to devices in CVP.
+Note: To run this playbook, ansible_host <strong>must</strong> be configured in your inventory for every EOS device. eAPI access <strong>must</strong> be configured and allowed in your networks.</p>
+<div class="highlight"><pre><span></span><code>- hosts: DC1_FABRIC
 
+  tasks:
+
+    - name: audit fabric state using EOS eAPI connection
+      import_role:
+         name: arista.avd.eos_validate_state
+</code></pre></div>
 <p><strong>An example playbook to deploy VXLAN/EVPN Fabric via eAPI:</strong></p>
-<p><img alt="Figure 2: Example Playbook CloudVision Deployment" src="media/figure-2-example-playbook-evpn-deploy-eapi.gif" /></p>
+<p><img alt="Figure 2: Example Playbook CloudVision Deployment" src="media/example-playbook-evpn-deploy-eapi.gif" /></p>
 <div class="highlight"><pre><span></span><code>- hosts: DC1_FABRIC
 
   tasks:
@@ -717,14 +1097,20 @@ cvprac==1.0.4
       import_role:
          name: arista.avd.eos_cli_config_gen
 
-    - name: deploy configuration to device
+    - name: deploy configuration via eAPI
       import_role:
          name: arista.avd.eos_config_deploy_eapi
-</code></pre></div>
 
+    - name: audit fabric state using EOS eAPI connection
+      import_role:
+         name: arista.avd.eos_validate_state
+</code></pre></div>
 <p><strong>Full examples with variables and outputs, are located here:</strong></p>
-<p><a href="https://github.com/aristanetworks/netdevops-examples">Arista NetDevOps Examples</a></p>
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h2>
+<p><a href="https://github.com/arista-netdevops-community">Arista NetDevOps Examples</a></p>
+<h3 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">#</a></h3>
+<p>Contributing pull requests are gladly welcomed for this repository. If you are planning a big change, please start a discussion first to make sure we&rsquo;ll be able to merge it.</p>
+<p>You can also open an <a href="https://github.com/aristanetworks/ansible-avd/issues">issue</a> to report any problem or to submit enhancement.</p>
+<h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h3>
 <p>Project is published under <a href="LICENSE">Apache 2.0 License</a></p>
                 
               
@@ -740,6 +1126,27 @@ cvprac==1.0.4
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+        
+          <a href="docs/release-notes/1.1.x/" title="1.1.x" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                1.1.x
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" /></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
