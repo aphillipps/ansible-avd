@@ -792,59 +792,46 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#create-molecule-scenario" class="md-nav__link">
-    Create Molecule scenario
+  <a href="#how-to-use-scenario" class="md-nav__link">
+    How to use scenario
   </a>
   
-    <nav class="md-nav" aria-label="Create Molecule scenario">
+    <nav class="md-nav" aria-label="How to use scenario">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-molecule-structure" class="md-nav__link">
-    Create molecule structure
+  <a href="#which-file-to-update" class="md-nav__link">
+    Which file to update
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#configure-molecule" class="md-nav__link">
-    Configure Molecule
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ansible-playbook-for-molecule" class="md-nav__link">
-    Ansible playbook for molecule
-  </a>
-  
-    <nav class="md-nav" aria-label="Ansible playbook for molecule">
+    <nav class="md-nav" aria-label="Which file to update">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-playbook" class="md-nav__link">
-    Create playbook
+  <a href="#if-you-are-updating-eos_cli_config_gen" class="md-nav__link">
+    If you are updating eos_cli_config_gen
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#converge-playbook" class="md-nav__link">
-    Converge playbook
+  <a href="#if-you-are-updating-eos_l3ls_evpn" class="md-nav__link">
+    If you are updating eos_l3ls_evpn
+  </a>
+  
+    <nav class="md-nav" aria-label="If you are updating eos_l3ls_evpn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#update-related-to-underlay-or-overlay-protocol" class="md-nav__link">
+    Update related to underlay or overlay protocol
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#destroy-playbook" class="md-nav__link">
-    Destroy playbook
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#verify-playbook" class="md-nav__link">
-    Verify playbook
+  <a href="#general-l3ls_evpn-update" class="md-nav__link">
+    General l3ls_evpn update
   </a>
   
 </li>
@@ -854,29 +841,13 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#inventory-creation" class="md-nav__link">
-    Inventory creation
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#manual-execution" class="md-nav__link">
-    Manual execution
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#continuous-integration" class="md-nav__link">
-    Continuous Integration
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -913,21 +884,18 @@
 <li><a href="#avd-unit-test">AVD Unit test</a><ul>
 <li><a href="#ansible-molecule">Ansible molecule</a></li>
 <li><a href="#scenario">Scenario</a></li>
-<li><a href="#create-molecule-scenario">Create Molecule scenario</a><ul>
-<li><a href="#create-molecule-structure">Create molecule structure</a></li>
-<li><a href="#configure-molecule">Configure Molecule</a></li>
-<li><a href="#ansible-playbook-for-molecule">Ansible playbook for molecule</a><ul>
-<li><a href="#create-playbook">Create playbook</a></li>
-<li><a href="#converge-playbook">Converge playbook</a></li>
-<li><a href="#destroy-playbook">Destroy playbook</a></li>
-<li><a href="#verify-playbook">Verify playbook</a></li>
+<li><a href="#how-to-use-scenario">How to use scenario</a><ul>
+<li><a href="#which-file-to-update">Which file to update</a><ul>
+<li><a href="#if-you-are-updating-eos_cli_config_gen">If you are updating <code>eos_cli_config_gen</code></a></li>
+<li><a href="#if-you-are-updating-eos_l3ls_evpn">If you are updating <code>eos_l3ls_evpn</code></a><ul>
+<li><a href="#update-related-to-underlay-or-overlay-protocol">Update related to underlay or overlay protocol</a></li>
+<li><a href="#general-l3ls_evpn-update">General l3ls_evpn update</a></li>
 </ul>
 </li>
-<li><a href="#inventory-creation">Inventory creation</a></li>
 </ul>
 </li>
-<li><a href="#manual-execution">Manual execution</a></li>
-<li><a href="#continuous-integration">Continuous Integration</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -936,213 +904,108 @@
 <h3 id="scenario">Scenario<a class="headerlink" href="#scenario" title="Permanent link">#</a></h3>
 <p>Current molecule implementation provides following scenario:</p>
 <ul>
-<li>AVD-L3LS-EBGP</li>
-<li>AVD-L3LS-EBGP-JSON</li>
-<li>AVD-L3LS-ISIS</li>
-<li>EOS-CLI-CONFIG-GEN</li>
+<li><code>eos_l3ls_evpn</code> with standard eBGP as underlay and overlay: <a href="evpn_underlay_ebgp_overlay_ebgp/molecule.yml">evpn_underlay_ebgp_overlay_ebgp</a></li>
+<li><code>eos_l3ls_evpn</code> with standard OSPF as underlay and eBGP overlay: <a href="evpn_underlay_ospf_overlay_ebgp/molecule.yml">evpn_underlay_ospf_overlay_ebgp</a></li>
+<li><code>eos_cli_config_gen</code> scenario to run unit test</li>
 </ul>
-<h3 id="create-molecule-scenario">Create Molecule scenario<a class="headerlink" href="#create-molecule-scenario" title="Permanent link">#</a></h3>
-<h4 id="create-molecule-structure">Create molecule structure<a class="headerlink" href="#create-molecule-structure" title="Permanent link">#</a></h4>
-<p>First create new molecule scenario:</p>
-<div class="highlight"><pre><span></span><code>$ molecule init scenario <span class="nb">test</span>
---&gt; Initializing new scenario test...
-Initialized scenario in ./molecule/test successfully.
+<h3 id="how-to-use-scenario">How to use scenario<a class="headerlink" href="#how-to-use-scenario" title="Permanent link">#</a></h3>
+<p>Molecule scenario are used to validate role execution and coverage of data-model. When you update a role or data-model, scenario must be updated to reflect your changes and validate it is not breaking other supported scenario.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Go to test folder</span>
+$ <span class="nb">cd</span> ansible_collections/arista/avd
+
+<span class="c1"># Edit molecule scenario</span>
+$ vim molecule/&lt;scenario-name&gt;/&lt;molecule-file&gt;
+
+<span class="c1"># Run testing</span>
+$ molecule <span class="nb">test</span> --scenario-name &lt;scenario-name&gt;
+
+<span class="c1"># Cleanup your environment</span>
+$ molecule cleanup --scenario-name &lt;scenario-name&gt;
 </code></pre></div>
-<h4 id="configure-molecule">Configure Molecule<a class="headerlink" href="#configure-molecule" title="Permanent link">#</a></h4>
-<p>Once, default structure is created by molecule itself, you can customize your molecule settings to define:</p>
+<h4 id="which-file-to-update">Which file to update<a class="headerlink" href="#which-file-to-update" title="Permanent link">#</a></h4>
+<h5 id="if-you-are-updating-eos_cli_config_gen">If you are updating <code>eos_cli_config_gen</code><a class="headerlink" href="#if-you-are-updating-eos_cli_config_gen" title="Permanent link">#</a></h5>
+<p>Testing for <code>eos_cli_config_gen</code> is part of <a href="eos_cli_config_gen/molecule.yml">scenario <code>eos_cli_config_gen</code></a>. It is based on a in flat inventory with 1 host covering a specific section of templates like:</p>
 <ul>
-<li>Inventory</li>
-<li>Scenario execution</li>
-<li>Provisioner content</li>
-<li>Verifier content</li>
+<li>Ethernet Interfaces defined in <a href="./eos_cli_config_gen/inventory/host_vars/ethernet_interfaces.yml">host_vars/ethernet_interfaces</a></li>
+<li>Loopback Interfaces defined in <a href="./eos_cli_config_gen/inventory/host_vars/loopbacks.yml">host_vars/loopback-interfaces</a></li>
+<li>Vlans defined in <a href="eos_cli_config_gen/inventory/host_vars/vlans.yml">host_vars/vlans</a></li>
 </ul>
-<p>First, let&rsquo;s define docker as molecule driver:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># vim molecule.yml</span>
-<span class="nt">dependency</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">galaxy</span>
-<span class="nt">driver</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">docker</span>
-</code></pre></div>
-<p>Define inventory for provisioner. This section will run a playbook to build AVD configurations</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># vim molecule.yml</span>
-<span class="nt">provisioner</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible</span>
-  <span class="nt">env</span><span class="p">:</span>
-    <span class="c1"># Path to access to collection. Usually root of the repository</span>
-    <span class="nt">ANSIBLE_COLLECTIONS_PATHS</span><span class="p">:</span> <span class="s">&#39;../../../../../&#39;</span>
-  <span class="c1"># Replicate specific ansible.cfg settings</span>
-  <span class="nt">config_options</span><span class="p">:</span>
-    <span class="nt">defaults</span><span class="p">:</span>
-      <span class="nt">jinja2_extensions</span><span class="p">:</span> <span class="s">&#39;jinja2.ext.loopcontrols,jinja2.ext.do,jinja2.ext.i18n&#39;</span>
-      <span class="nt">gathering</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">explicit</span>
-      <span class="nt">command_warnings</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
-  <span class="c1"># Define where inventory file is defined</span>
-  <span class="nt">inventory</span><span class="p">:</span>
-    <span class="nt">links</span><span class="p">:</span>
-      <span class="nt">hosts</span><span class="p">:</span> <span class="s">&#39;inventory/hosts&#39;</span>
-      <span class="nt">group_vars</span><span class="p">:</span> <span class="s">&#39;inventory/group_vars/&#39;</span>
-      <span class="nt">host_vars</span><span class="p">:</span> <span class="s">&#39;inventory/host_vars/&#39;</span>
-  <span class="nt">ansible_args</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">--inventory=inventory/hosts</span>
-</code></pre></div>
-<p>Then we should define a platform to run molecule testing. In AVD context, this platform should be a device part of testing inventory</p>
-<div class="highlight"><pre><span></span><code>platforms:
-  - name: DC1-LEAF1A
-    <span class="c1"># Docker image to run for that host</span>
-    image: avdteam/base:3.6
-    pre_build_image: <span class="nb">true</span>
-    managed: <span class="nb">false</span>
-    <span class="c1"># Inventory group for this specific host.</span>
-    groups:
-      - DC1_LEAF1
-      - DC1_LEAFS
-      - DC1_FABRIC
-      - AVD_LAB
-</code></pre></div>
-<p>Then, configure sequence to run during molecule execution:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">scenario</span><span class="p">:</span>
-  <span class="nt">test_sequence</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">destroy</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">create</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">converge</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">idempotence</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">verify</span> <span class="c1"># Optional based on scenario we need to test</span>
-</code></pre></div>
-<p>In this configuration, molecule will run playbooks in that specific order:</p>
-<ul>
-<li>destroy: <code>destroy.yml</code> playbook</li>
-<li>create: <code>create.yml</code> playbook</li>
-<li>converge: <code>converge.yml</code> playbook</li>
-<li>idempotency: <code>converge.yml</code> playbook with no change expected.</li>
-</ul>
-<p>Molecule provides more sequences as explained in <a href="https://molecule.readthedocs.io/en/latest/configuration.html#scenario">documentation</a></p>
-<h4 id="ansible-playbook-for-molecule">Ansible playbook for molecule<a class="headerlink" href="#ansible-playbook-for-molecule" title="Permanent link">#</a></h4>
-<h5 id="create-playbook">Create playbook<a class="headerlink" href="#create-playbook" title="Permanent link">#</a></h5>
-<p>This playbook is a helper to prepare converge and test sequences. In AVD context, we leverage this playbook to build output directories:</p>
-<div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Configure local folders</span>
-  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
-  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
-  <span class="nt">tasks</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create local output folders</span>
-      <span class="nt">delegate_to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
-      <span class="nt">import_role</span><span class="p">:</span>
-         <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arista.avd.build_output_folders</span>
-      <span class="nt">run_once</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-</code></pre></div>
-<h5 id="converge-playbook">Converge playbook<a class="headerlink" href="#converge-playbook" title="Permanent link">#</a></h5>
-<p>This playbook builds AVD content:</p>
-<div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Converge</span>
-  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
-  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
-  <span class="nt">tasks</span><span class="p">:</span>
+<p>When you update a template in <code>eos_cli_config_gen</code>, you should report a test case in molecule scenario <a href="./eos_cli_config_gen/"><code>ansible_collections/arista/avd/molecule/eos_cli_config_gen</code></a>.</p>
+<ol>
+<li>Create or update a file related to uupdated section under <code>inventory/host_vars</code></li>
+<li>If section is new, update inventory file to add a new host. Host SHALL be the name of your section and also file in your <code>host_vars</code></li>
+<li>Run molecule scenario to generate artefacts:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Move to AVD collection</span>
+$ <span class="nb">cd</span> ansible_collections/arista/avd/
 
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generate intented variables</span>
-      <span class="nt">delegate_to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
-      <span class="nt">import_role</span><span class="p">:</span>
-         <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arista.avd.eos_l3ls_evpn</span>
-
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">generate device intended config and documention</span>
-      <span class="nt">delegate_to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
-      <span class="nt">import_role</span><span class="p">:</span>
-         <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arista.avd.eos_cli_config_gen</span>
+<span class="c1"># Run molecule</span>
+$ molecule <span class="nb">test</span> --scenario-name eos_cli_config_gen
 </code></pre></div>
-<p>This playbook will be run twice: first as <strong>converge</strong> sequence and second as <strong>idempotency</strong></p>
-<h5 id="destroy-playbook">Destroy playbook<a class="headerlink" href="#destroy-playbook" title="Permanent link">#</a></h5>
-<p>Because we want to save content to CI, this sequence should not be added to the end of the scenario but only at the begining to cleanup pre-execution.</p>
-<div class="highlight"><pre><span></span><code><span class="nn">---</span>
-<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Remove output folders</span>
-  <span class="nt">hosts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all</span>
-  <span class="nt">gather_facts</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="nt">connection</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">local</span>
-  <span class="nt">tasks</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete local folders</span>
-      <span class="nt">delegate_to</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
-      <span class="nt">run_once</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-      <span class="nt">file</span><span class="p">:</span>
-        <span class="nt">path</span><span class="p">:</span> <span class="s">&quot;{{root_dir}}/{{</span><span class="nv"> </span><span class="s">item</span><span class="nv"> </span><span class="s">}}&quot;</span>
-        <span class="nt">state</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
-      <span class="nt">with_items</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">documentation</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">intended</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">config_backup</span>
+<ol>
+<li>Commit artefacts. They will be used by CI to validate their is no change in the future.</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ git commit -m <span class="s1">&#39;Upload artefact for issue #...&#39;</span> molecule/eos_cli_config_gen
 </code></pre></div>
-<h5 id="verify-playbook">Verify playbook<a class="headerlink" href="#verify-playbook" title="Permanent link">#</a></h5>
-<p>Not leverage in current implementation.</p>
-<h4 id="inventory-creation">Inventory creation<a class="headerlink" href="#inventory-creation" title="Permanent link">#</a></h4>
-<p>Inventory has no difference with <a href="https://aristanetworks.github.io/ansible-avd/roles/eos_l3ls_evpn/">AVD documentation</a> provides:</p>
-<ul>
-<li>inventory/hosts has list of devices using <code>YAML</code> structure.</li>
-<li>inventory/group_vars has list of all AVD variables</li>
-<li>inventory/host_vars/all.yml configure a specific variable to save all AVD output outside of inventory fo CI purpose</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="c1"># inventory/host_vars/all.yml</span>
-<span class="nn">---</span>
-<span class="nt">root_dir</span><span class="p">:</span> <span class="s">&#39;{{playbook_dir}}&#39;</span>
+<blockquote>
+<p>If you have <code>pre-commit</code> enabled, use <code>--no-verify</code> trigger to avoid any content change in your commit</p>
+</blockquote>
+<h5 id="if-you-are-updating-eos_l3ls_evpn">If you are updating <code>eos_l3ls_evpn</code><a class="headerlink" href="#if-you-are-updating-eos_l3ls_evpn" title="Permanent link">#</a></h5>
+<h6 id="update-related-to-underlay-or-overlay-protocol">Update related to underlay or overlay protocol<a class="headerlink" href="#update-related-to-underlay-or-overlay-protocol" title="Permanent link">#</a></h6>
+<p>In such case, copy an existing scenario to create a new one:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Move to AVD collection</span>
+$ <span class="nb">cd</span> ansible_collections/arista/avd/
+
+<span class="c1"># Run Molecule scenario</span>
+$ molecule <span class="nb">test</span> --scenario-name eos_cli_config_gen
 </code></pre></div>
-<h3 id="manual-execution">Manual execution<a class="headerlink" href="#manual-execution" title="Permanent link">#</a></h3>
-<p>To manually run molecule testing, follow commands:</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Install development requirements</span>
-$ pip install -r development/requirements-dev.txt
+<h6 id="general-l3ls_evpn-update">General l3ls_evpn update<a class="headerlink" href="#general-l3ls_evpn-update" title="Permanent link">#</a></h6>
+<p>If your update is not related to underlay or overlay protocol, edit scenario <code>evpn_underlay_ebgp_overlay_ebgp</code> and edit group_vars accordingly. Then run molecule to validate it is working as expected</p>
+<ol>
+<li>Create your scenario</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Move to AVD collection</span>
+$ <span class="nb">cd</span> ansible_collections/arista/avd/
 
-<span class="c1"># Move to AVD collection</span>
-$ ansible-avd/ansible_collections/arista/avd
-
-<span class="c1"># Run molecule for a given test</span>
-$ molecule <span class="nb">test</span> -s &lt;scenario-name&gt;
-
-<span class="c1"># Run molecule for all test</span>
-$ molecule <span class="nb">test</span> --all
+<span class="c1"># Copy existing molecule scenario</span>
+$ cp -r molecule/evpn_underlay_isis_overlay_ebgp molecule/evpn_underlay_&lt;underlay-protocole&gt;_overlay_&lt;overlay-protocol&gt;
 </code></pre></div>
-<h3 id="continuous-integration">Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permanent link">#</a></h3>
-<p>These scenario are all included in github actions and executed on <code>push</code> and <code>pull_request</code> when a file under <code>roles</code> and/or <code>molecule</code> is updated.</p>
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Ansible Molecule</span>
-<span class="nt">on</span><span class="p">:</span>
-  <span class="nt">push</span><span class="p">:</span>
-  <span class="nt">pull_request</span><span class="p">:</span>
-    <span class="nt">paths</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;ansible_collections/arista/avd/roles/**&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;ansible_collections/arista/avd/molecules/**&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&#39;requirements.txt&#39;</span>
+<ol>
+<li>Edit files from your scneario&rsquo;s inventory</li>
+</ol>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> molecule/evpn_underlay_&lt;underlay-protocole&gt;_overlay_&lt;overlay-protocol&gt;/inventory
+
+<span class="c1"># Edit group_vars</span>
+$ vim group_vars/DC1_FABRIC.yml
+</code></pre></div>
+<ol>
+<li>Run your molecle scenario for validation</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1"># Move to AVD collection</span>
+$ <span class="nb">cd</span> ../../../
+
+<span class="c1"># Run Molecule scenario</span>
+$ molecule <span class="nb">test</span> --scenario-name evpn_underlay_&lt;underlay-protocole&gt;_overlay_&lt;overlay-protocol&gt;
+</code></pre></div>
+<ol>
+<li>Edit CI file to include your scenario</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1">#.github/workflows/molecule-l3ls-evpn.yml</span>
 <span class="nt">jobs</span><span class="p">:</span>
   <span class="nt">molecule</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Run CI test for eos_l3ls_evpn</span>
     <span class="nt">runs-on</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
-    <span class="nt">env</span><span class="p">:</span>
-      <span class="nt">PY_COLORS</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span> <span class="c1"># allows molecule colors to be passed to GitHub Actions</span>
-      <span class="nt">ANSIBLE_FORCE_COLOR</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span> <span class="c1"># allows ansible colors to be passed to GitHub Actions</span>
     <span class="nt">strategy</span><span class="p">:</span>
       <span class="nt">fail-fast</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
       <span class="nt">matrix</span><span class="p">:</span>
         <span class="nt">avd_scenario</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="s">&#39;avd-l3ls-ebgp&#39;</span>
-          <span class="p p-Indicator">-</span> <span class="s">&#39;avd-l3ls-ebgp-json&#39;</span>
-          <span class="p p-Indicator">-</span> <span class="s">&#39;avd-l3ls-isis&#39;</span>
-          <span class="p p-Indicator">-</span> <span class="s">&#39;eos-cli-config-gen&#39;</span>
-    <span class="nt">steps</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/checkout@v1</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Set up Python 3</span>
-        <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/setup-python@v1</span>
-        <span class="nt">with</span><span class="p">:</span>
-          <span class="nt">python-version</span><span class="p">:</span> <span class="s">&#39;3.x&#39;</span>
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Install dependencies</span>
-        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-          <span class="no">python -m pip install --upgrade pip</span>
-          <span class="no">pip install -r development/requirements.txt</span>
-          <span class="no">pip install -r development/requirements-dev.txt</span>
-
-      <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Execute molecule</span>
-        <span class="nt">run</span><span class="p">:</span> <span class="p p-Indicator">|</span>
-          <span class="no">cd ansible_collections/arista/avd</span>
-          <span class="no">molecule test --scenario-name ${{ matrix.avd_scenario }}</span>
-
-      <span class="p p-Indicator">-</span> <span class="nt">uses</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">actions/upload-artifact@v1</span>
-        <span class="nt">with</span><span class="p">:</span>
-          <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">molecule-results-${{ matrix.avd_scenario }}</span>
-          <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ansible_collections/arista/avd/molecule/${{ matrix.avd_scenario }}</span>
+          <span class="p p-Indicator">-</span> <span class="s">&#39;evpn_underlay_ebgp_overlay_ebgp&#39;</span>
+          <span class="p p-Indicator">-</span> <span class="s">&#39;evpn_underlay_ospf_overlay_ebgp&#39;</span>
+          <span class="p p-Indicator">-</span> <span class="s">&#39;evpn_underlay_isis_overlay_ebgp&#39;</span>
+          <span class="p p-Indicator">-</span> <span class="s">&#39;evpn_underlay_&lt;underlay-protocole&gt;_overlay_&lt;overlay-protocol&gt;&#39;</span>
+          <span class="p p-Indicator">-</span> <span class="s">&#39;upgrade_v1.0_to_v1.1&#39;</span>
 </code></pre></div>
+<p>Once you are ready, commit your change and push to Github.</p>
                 
               
               

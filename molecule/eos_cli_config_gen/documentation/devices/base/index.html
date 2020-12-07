@@ -1,0 +1,1813 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Arista Validated Design collection's documentation">
+      
+      
+      
+        <meta name="author" content="Arista Ansible Team">
+      
+      <link rel="shortcut icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-5.1.1">
+    
+    
+      
+        <title>base - Arista AVD collection</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.a676eddb.min.css">
+      
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../../../docs/stylesheets/extra.material.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#base" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="../../../../.." title="Arista AVD collection" class="md-header-nav__button md-logo" aria-label="Arista AVD collection">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Arista AVD collection
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              base
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/aristanetworks/ansible-avd/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AVD on Github
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Arista AVD collection" class="md-nav__button md-logo" aria-label="Arista AVD collection">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,8A3,3 0 0,0 15,5A3,3 0 0,0 12,2A3,3 0 0,0 9,5A3,3 0 0,0 12,8M12,11.54C9.64,9.35 6.5,8 3,8V19C6.5,19 9.64,20.35 12,22.54C14.36,20.35 17.5,19 21,19V8C17.5,8 14.36,9.35 12,11.54Z" /></svg>
+
+    </a>
+    Arista AVD collection
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/aristanetworks/ansible-avd/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AVD on Github
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Release Notes
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Release Notes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/release-notes/1.1.x/" title="1.1.x" class="md-nav__link">
+      1.1.x
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/release-notes/1.0.x/" title="1.0.x" class="md-nav__link">
+      1.0.x
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/getting-started/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Installation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Installation" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Installation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/installation/requirements/" title="Requirements" class="md-nav__link">
+      Requirements
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/installation/setup-environement/" title="Setup environment" class="md-nav__link">
+      Setup environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/installation/setup-galaxy/" title="Ansible-galaxy installation" class="md-nav__link">
+      Ansible-galaxy installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/installation/setup-git/" title="Git installation" class="md-nav__link">
+      Git installation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/installation/development/" title="Development tips & tricks" class="md-nav__link">
+      Development tips & tricks
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      How-To
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="How-To" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        How-To
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/how-to/first-project/" title="Build your first AVD project" class="md-nav__link">
+      Build your first AVD project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/how-to/first-cvp-avd-project/" title="Build your first AVD & CVP project" class="md-nav__link">
+      Build your first AVD & CVP project
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/how-to/lab-with-nat/" title="Use NAT to access eAPI" class="md-nav__link">
+      Use NAT to access eAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/how-to/tower-integration/" title="AWX & Tower Integration" class="md-nav__link">
+      AWX & Tower Integration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Roles documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Roles documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Roles documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../roles/eos_l3ls_evpn/" title="eos_l3ls_evpn" class="md-nav__link">
+      eos_l3ls_evpn
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../roles/eos_cli_config_gen/" title="eos_cli_config_gen" class="md-nav__link">
+      eos_cli_config_gen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../roles/cvp_configlet_upload/" title="cvp_configlet_upload" class="md-nav__link">
+      cvp_configlet_upload
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../roles/eos_config_deploy_cvp/" title="eos_config_deploy_cvp" class="md-nav__link">
+      eos_config_deploy_cvp
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../roles/eos_config_deploy_eapi/" title="eos_config_deploy_eapi" class="md-nav__link">
+      eos_config_deploy_eapi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../roles/eos_validate_state/" title="eos_validate_state" class="md-nav__link">
+      eos_validate_state
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../roles/build_output_folders/" title="build_output_folders" class="md-nav__link">
+      build_output_folders
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../roles/upgrade_tools/" title="upgrade_tools" class="md-nav__link">
+      upgrade_tools
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Modules documentation
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Modules documentation" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        Modules documentation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/modules/inventory_to_container.rst/" title="Module Inventory to containers" class="md-nav__link">
+      Module Inventory to containers
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/modules/configlet_build_config.rst/" title="Module Configlet Build configuration" class="md-nav__link">
+      Module Configlet Build configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      External resources
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="External resources" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        External resources
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://docs.ansible.com/ansible/latest/user_guide/collections_using.html" title="Ansible collection user guide" class="md-nav__link">
+      Ansible collection user guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://docs.ansible.com/ansible/latest/user_guide/index.html" title="Ansible User guide" class="md-nav__link">
+      Ansible User guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      About
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" /></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="About" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+        </span>
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../../docs/contributing/" title="Contribution Guide" class="md-nav__link">
+      Contribution Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://galaxy.ansible.com/arista/cvp" title="Ansible Galaxy page" class="md-nav__link">
+      Ansible Galaxy page
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/aristanetworks/ansible-avd" title="Arista AVD Modules" class="md-nav__link">
+      Arista AVD Modules
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/arista-netdevops-community/avd-install" title="Arista Installation Script" class="md-nav__link">
+      Arista Installation Script
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/aristanetworks/netdevops-examples" title="Arista Automation Examples" class="md-nav__link">
+      Arista Automation Examples
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z" /></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#base" class="md-nav__link">
+    base
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    Table of Contents
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#management" class="md-nav__link">
+    Management
+  </a>
+  
+    <nav class="md-nav" aria-label="Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#management-interfaces" class="md-nav__link">
+    Management Interfaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Management Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#management-interfaces-summary" class="md-nav__link">
+    Management Interfaces Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#management-interfaces-device-configuration" class="md-nav__link">
+    Management Interfaces Device Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns-domain" class="md-nav__link">
+    DNS Domain
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#domain-list" class="md-nav__link">
+    Domain-List
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#name-servers" class="md-nav__link">
+    Name Servers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#domain-lookup" class="md-nav__link">
+    Domain Lookup
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ntp" class="md-nav__link">
+    NTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#management-ssh" class="md-nav__link">
+    Management SSH
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    Authentication
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-users" class="md-nav__link">
+    Local Users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tacacs-servers" class="md-nav__link">
+    TACACS Servers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-tacacs-source-interfaces" class="md-nav__link">
+    IP TACACS Source Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radius-servers" class="md-nav__link">
+    RADIUS Servers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aaa-server-groups" class="md-nav__link">
+    AAA Server Groups
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aaa-authentication" class="md-nav__link">
+    AAA Authentication
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aaa-authorization" class="md-nav__link">
+    AAA Authorization
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aaa-accounting" class="md-nav__link">
+    AAA Accounting
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#management-security" class="md-nav__link">
+    Management Security
+  </a>
+  
+    <nav class="md-nav" aria-label="Management Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#management-security_1" class="md-nav__link">
+    Management Security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#management-security-configuration" class="md-nav__link">
+    Management Security Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aliases" class="md-nav__link">
+    Aliases
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitoring" class="md-nav__link">
+    Monitoring
+  </a>
+  
+    <nav class="md-nav" aria-label="Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#terminattr-daemon" class="md-nav__link">
+    TerminAttr Daemon
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    Logging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sflow" class="md-nav__link">
+    SFlow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-counters" class="md-nav__link">
+    Hardware Counters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vm-tracer-sessions" class="md-nav__link">
+    VM Tracer Sessions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event-handler" class="md-nav__link">
+    Event Handler
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mlag" class="md-nav__link">
+    MLAG
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spanning-tree" class="md-nav__link">
+    Spanning Tree
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internal-vlan-allocation-policy" class="md-nav__link">
+    Internal VLAN Allocation Policy
+  </a>
+  
+    <nav class="md-nav" aria-label="Internal VLAN Allocation Policy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#internal-vlan-allocation-policy-summary" class="md-nav__link">
+    Internal VLAN Allocation Policy Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vlans" class="md-nav__link">
+    VLANs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#interfaces" class="md-nav__link">
+    Interfaces
+  </a>
+  
+    <nav class="md-nav" aria-label="Interfaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ethernet-interfaces" class="md-nav__link">
+    Ethernet Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-channel-interfaces" class="md-nav__link">
+    Port-Channel Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loopback-interfaces" class="md-nav__link">
+    Loopback Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlan-interfaces" class="md-nav__link">
+    VLAN Interfaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vxlan-interface" class="md-nav__link">
+    VXLAN Interface
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing" class="md-nav__link">
+    Routing
+  </a>
+  
+    <nav class="md-nav" aria-label="Routing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtual-router-mac-address" class="md-nav__link">
+    Virtual Router MAC Address
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-routing" class="md-nav__link">
+    IP Routing
+  </a>
+  
+    <nav class="md-nav" aria-label="IP Routing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-routing-summary" class="md-nav__link">
+    IP Routing Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-routing-device-configuration" class="md-nav__link">
+    IP Routing Device Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6-routing" class="md-nav__link">
+    IPv6 Routing
+  </a>
+  
+    <nav class="md-nav" aria-label="IPv6 Routing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipv6-routing-summary" class="md-nav__link">
+    IPv6 Routing Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-routes" class="md-nav__link">
+    Static Routes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#router-isis" class="md-nav__link">
+    Router ISIS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#router-bgp" class="md-nav__link">
+    Router BGP
+  </a>
+  
+    <nav class="md-nav" aria-label="Router BGP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#router-bfd" class="md-nav__link">
+    Router BFD
+  </a>
+  
+    <nav class="md-nav" aria-label="Router BFD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#router-bfd-multihop-summary" class="md-nav__link">
+    Router BFD Multihop Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multicast" class="md-nav__link">
+    Multicast
+  </a>
+  
+    <nav class="md-nav" aria-label="Multicast">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-igmp-snooping" class="md-nav__link">
+    IP IGMP Snooping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#router-multicast" class="md-nav__link">
+    Router Multicast
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#router-pim-sparse-mode" class="md-nav__link">
+    Router PIM Sparse Mode
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#filters" class="md-nav__link">
+    Filters
+  </a>
+  
+    <nav class="md-nav" aria-label="Filters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#community-lists" class="md-nav__link">
+    Community Lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#peer-filters" class="md-nav__link">
+    Peer Filters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prefix-lists" class="md-nav__link">
+    Prefix Lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6-prefix-lists" class="md-nav__link">
+    IPv6 Prefix Lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-maps" class="md-nav__link">
+    Route Maps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-extended-communities" class="md-nav__link">
+    IP Extended Communities
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acl" class="md-nav__link">
+    ACL
+  </a>
+  
+    <nav class="md-nav" aria-label="ACL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-access-lists" class="md-nav__link">
+    Standard Access-lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extended-access-lists" class="md-nav__link">
+    Extended Access-lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6-standard-access-lists" class="md-nav__link">
+    IPv6 Standard Access-lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6-extended-access-lists" class="md-nav__link">
+    IPv6 Extended Access-lists
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vrf-instances" class="md-nav__link">
+    VRF Instances
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#virtual-source-nat" class="md-nav__link">
+    Virtual Source NAT
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#platform" class="md-nav__link">
+    Platform
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#router-l2-vpn" class="md-nav__link">
+    Router L2 VPN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ip-dhcp-relay" class="md-nav__link">
+    IP DHCP Relay
+  </a>
+  
+    <nav class="md-nav" aria-label="IP DHCP Relay">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-templates" class="md-nav__link">
+    Custom Templates
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/aristanetworks/ansible-avd/edit/master/docs/molecule/eos_cli_config_gen/documentation/devices/base.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                  <h1>base</h1>
+                
+                <h2 id="base">base<a class="headerlink" href="#base" title="Permanent link">#</a></h2>
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="#management">Management</a><ul>
+<li><a href="#management-interfaces">Management Interfaces</a></li>
+<li><a href="#dns-domain">DNS Domain</a></li>
+<li><a href="#name-servers">Name Servers</a></li>
+<li><a href="#domain-lookup">Domain Lookup</a></li>
+<li><a href="#ntp">NTP</a></li>
+<li><a href="#management-ssh">Management SSH</a></li>
+</ul>
+</li>
+<li><a href="#authentication">Authentication</a><ul>
+<li><a href="#local-users">Local Users</a></li>
+<li><a href="#tacacs-servers">TACACS Servers</a></li>
+<li><a href="#ip-tacacs-source-interfaces">IP TACACS Source Interfaces</a></li>
+<li><a href="#radius-servers">RADIUS Servers</a></li>
+<li><a href="#aaa-server-groups">AAA Server Groups</a></li>
+<li><a href="#aaa-authentication">AAA Authentication</a></li>
+<li><a href="#aaa-authorization">AAA Authorization</a></li>
+<li><a href="#aaa-accounting">AAA Accounting</a></li>
+</ul>
+</li>
+<li><a href="#management-security">Management Security</a></li>
+<li><a href="#aliases">Aliases</a></li>
+<li><a href="#monitoring">Monitoring</a><ul>
+<li><a href="#terminattr-daemon">TerminAttr Daemon</a></li>
+<li><a href="#logging">Logging</a></li>
+<li><a href="#sflow">SFlow</a></li>
+<li><a href="#hardware-counters">Hardware Counters</a></li>
+<li><a href="#vm-tracer-sessions">VM Tracer Sessions</a></li>
+<li><a href="#event-handler">Event Handler</a></li>
+</ul>
+</li>
+<li><a href="#mlag">MLAG</a></li>
+<li><a href="#spanning-tree">Spanning Tree</a></li>
+<li><a href="#internal-vlan-allocation-policy">Internal VLAN Allocation Policy</a></li>
+<li><a href="#vlans">VLANs</a></li>
+<li><a href="#interfaces">Interfaces</a><ul>
+<li><a href="#ethernet-interfaces">Ethernet Interfaces</a></li>
+<li><a href="#port-channel-interfaces">Port-Channel Interfaces</a></li>
+<li><a href="#loopback-interfaces">Loopback Interfaces</a></li>
+<li><a href="#vlan-interfaces">VLAN Interfaces</a></li>
+<li><a href="#vxlan-interface">VXLAN Interface</a></li>
+</ul>
+</li>
+<li><a href="#routing">Routing</a><ul>
+<li><a href="#virtual-router-mac-address">Virtual Router MAC Address</a></li>
+<li><a href="#ip-routing">IP Routing</a></li>
+<li><a href="#ipv6-routing">IPv6 Routing</a></li>
+<li><a href="#static-routes">Static Routes</a></li>
+<li><a href="#router-isis">Router ISIS</a></li>
+<li><a href="#router-bgp">Router BGP</a></li>
+<li><a href="#router-bfd">Router BFD</a></li>
+</ul>
+</li>
+<li><a href="#multicast">Multicast</a><ul>
+<li><a href="#ip-igmp-snooping">IP IGMP Snooping</a></li>
+<li><a href="#router-multicast">Router Multicast</a></li>
+<li><a href="#router-pim-sparse-mode">Router PIM Sparse Mode</a></li>
+</ul>
+</li>
+<li><a href="#filters">Filters</a><ul>
+<li><a href="#community-lists">Community Lists</a></li>
+<li><a href="#peer-filters">Peer Filters</a></li>
+<li><a href="#prefix-lists">Prefix Lists</a></li>
+<li><a href="#ipv6-prefix-lists">IPv6 Prefix Lists</a></li>
+<li><a href="#route-maps">Route Maps</a></li>
+<li><a href="#ip-extended-communities">IP Extended Communities</a></li>
+</ul>
+</li>
+<li><a href="#acl">ACL</a><ul>
+<li><a href="#standard-access-lists">Standard Access-lists</a></li>
+<li><a href="#extended-access-lists">Extended Access-lists</a></li>
+<li><a href="#ipv6-standard-access-lists">IPv6 Standard Access-lists</a></li>
+<li><a href="#ipv6-extended-access-lists">IPv6 Extended Access-lists</a></li>
+</ul>
+</li>
+<li><a href="#vrf-instances">VRF Instances</a></li>
+<li><a href="#virtual-source-nat">Virtual Source NAT</a></li>
+<li><a href="#platform">Platform</a></li>
+<li><a href="#router-l2-vpn">Router L2 VPN</a></li>
+<li><a href="#ip-dhcp-relay">IP DHCP Relay</a></li>
+</ul>
+<h2 id="management">Management<a class="headerlink" href="#management" title="Permanent link">#</a></h2>
+<h3 id="management-interfaces">Management Interfaces<a class="headerlink" href="#management-interfaces" title="Permanent link">#</a></h3>
+<h4 id="management-interfaces-summary">Management Interfaces Summary<a class="headerlink" href="#management-interfaces-summary" title="Permanent link">#</a></h4>
+<p>IPv4</p>
+<table>
+<thead>
+<tr>
+<th>Management Interface</th>
+<th>description</th>
+<th>VRF</th>
+<th>IP Address</th>
+<th>Gateway</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Management1</td>
+<td>oob_management</td>
+<td>MGMT</td>
+<td>10.73.255.122/24</td>
+<td>10.73.255.2</td>
+</tr>
+</tbody>
+</table>
+<p>IPv6</p>
+<table>
+<thead>
+<tr>
+<th>Management Interface</th>
+<th>description</th>
+<th>VRF</th>
+<th>IPv6 Address</th>
+<th>IPv6 Gateway</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Management1</td>
+<td>oob_management</td>
+<td>MGMT</td>
+<td>not configured</td>
+<td>not configured</td>
+</tr>
+</tbody>
+</table>
+<h4 id="management-interfaces-device-configuration">Management Interfaces Device Configuration<a class="headerlink" href="#management-interfaces-device-configuration" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>!
+interface Management1
+   description oob_management
+   vrf MGMT
+   ip address 10.73.255.122/24
+</code></pre></div>
+<h3 id="dns-domain">DNS Domain<a class="headerlink" href="#dns-domain" title="Permanent link">#</a></h3>
+<p>DNS domain not defined</p>
+<h3 id="domain-list">Domain-List<a class="headerlink" href="#domain-list" title="Permanent link">#</a></h3>
+<p>Domain-list not defined</p>
+<h3 id="name-servers">Name Servers<a class="headerlink" href="#name-servers" title="Permanent link">#</a></h3>
+<p>No Name Servers defined</p>
+<h3 id="domain-lookup">Domain Lookup<a class="headerlink" href="#domain-lookup" title="Permanent link">#</a></h3>
+<p>DNS domain lookup not defined</p>
+<h3 id="ntp">NTP<a class="headerlink" href="#ntp" title="Permanent link">#</a></h3>
+<p>No NTP servers defined</p>
+<h3 id="management-ssh">Management SSH<a class="headerlink" href="#management-ssh" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>!
+management ssh
+   ip access-group ACL-SSH in
+   ip access-group ACL-SSH-VRF vrf mgt in
+   ipv6 access-group ACL-SSH6 in
+   ipv6 access-group ACL-SSH-VRF6 vrf mgt in
+   idle-timeout 15
+   vrf mgt
+      no shutdown
+</code></pre></div>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
+<h3 id="local-users">Local Users<a class="headerlink" href="#local-users" title="Permanent link">#</a></h3>
+<p>No Users Defined</p>
+<h3 id="tacacs-servers">TACACS Servers<a class="headerlink" href="#tacacs-servers" title="Permanent link">#</a></h3>
+<p>TACACS servers not configured</p>
+<h3 id="ip-tacacs-source-interfaces">IP TACACS Source Interfaces<a class="headerlink" href="#ip-tacacs-source-interfaces" title="Permanent link">#</a></h3>
+<p>IP TACACS source interfaces not defined</p>
+<h3 id="radius-servers">RADIUS Servers<a class="headerlink" href="#radius-servers" title="Permanent link">#</a></h3>
+<p>RADIUS servers not configured</p>
+<h3 id="aaa-server-groups">AAA Server Groups<a class="headerlink" href="#aaa-server-groups" title="Permanent link">#</a></h3>
+<p>AAA server groups not defined</p>
+<h3 id="aaa-authentication">AAA Authentication<a class="headerlink" href="#aaa-authentication" title="Permanent link">#</a></h3>
+<p>AAA authentication not defined</p>
+<h3 id="aaa-authorization">AAA Authorization<a class="headerlink" href="#aaa-authorization" title="Permanent link">#</a></h3>
+<p>AAA authorization not defined</p>
+<h3 id="aaa-accounting">AAA Accounting<a class="headerlink" href="#aaa-accounting" title="Permanent link">#</a></h3>
+<p>AAA accounting not defined</p>
+<h2 id="management-security">Management Security<a class="headerlink" href="#management-security" title="Permanent link">#</a></h2>
+<h4 id="management-security_1">Management Security<a class="headerlink" href="#management-security_1" title="Permanent link">#</a></h4>
+<p>Management Security password encryption is common.</p>
+<h4 id="management-security-configuration">Management Security Configuration<a class="headerlink" href="#management-security-configuration" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>!
+management security
+   password encryption-key common
+</code></pre></div>
+<h2 id="aliases">Aliases<a class="headerlink" href="#aliases" title="Permanent link">#</a></h2>
+<p>Aliases not defined</p>
+<h2 id="monitoring">Monitoring<a class="headerlink" href="#monitoring" title="Permanent link">#</a></h2>
+<h3 id="terminattr-daemon">TerminAttr Daemon<a class="headerlink" href="#terminattr-daemon" title="Permanent link">#</a></h3>
+<p>TerminAttr Daemon not defined</p>
+<h3 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">#</a></h3>
+<p>No logging settings defined</p>
+<h3 id="sflow">SFlow<a class="headerlink" href="#sflow" title="Permanent link">#</a></h3>
+<p>No sFlow defined</p>
+<h3 id="hardware-counters">Hardware Counters<a class="headerlink" href="#hardware-counters" title="Permanent link">#</a></h3>
+<p>No Hardware Counters defined</p>
+<h3 id="vm-tracer-sessions">VM Tracer Sessions<a class="headerlink" href="#vm-tracer-sessions" title="Permanent link">#</a></h3>
+<p>No VM tracer session defined</p>
+<h3 id="event-handler">Event Handler<a class="headerlink" href="#event-handler" title="Permanent link">#</a></h3>
+<p>No Event Handler Defined</p>
+<h2 id="mlag">MLAG<a class="headerlink" href="#mlag" title="Permanent link">#</a></h2>
+<p>MLAG not defined</p>
+<h2 id="spanning-tree">Spanning Tree<a class="headerlink" href="#spanning-tree" title="Permanent link">#</a></h2>
+<p>Spanning-Tree Not Defined</p>
+<h2 id="internal-vlan-allocation-policy">Internal VLAN Allocation Policy<a class="headerlink" href="#internal-vlan-allocation-policy" title="Permanent link">#</a></h2>
+<h4 id="internal-vlan-allocation-policy-summary">Internal VLAN Allocation Policy Summary<a class="headerlink" href="#internal-vlan-allocation-policy-summary" title="Permanent link">#</a></h4>
+<p><strong>Default Allocation Policy</strong></p>
+<table>
+<thead>
+<tr>
+<th>Policy Allocation</th>
+<th>Range Beginning</th>
+<th>Range Ending</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ascending</td>
+<td>1006</td>
+<td>4094</td>
+</tr>
+</tbody>
+</table>
+<h2 id="vlans">VLANs<a class="headerlink" href="#vlans" title="Permanent link">#</a></h2>
+<p>No VLANs defined</p>
+<h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h2>
+<h3 id="ethernet-interfaces">Ethernet Interfaces<a class="headerlink" href="#ethernet-interfaces" title="Permanent link">#</a></h3>
+<h3 id="port-channel-interfaces">Port-Channel Interfaces<a class="headerlink" href="#port-channel-interfaces" title="Permanent link">#</a></h3>
+<p>No Port-Channels defined</p>
+<h3 id="loopback-interfaces">Loopback Interfaces<a class="headerlink" href="#loopback-interfaces" title="Permanent link">#</a></h3>
+<p>No Loopback interfaces defined</p>
+<h3 id="vlan-interfaces">VLAN Interfaces<a class="headerlink" href="#vlan-interfaces" title="Permanent link">#</a></h3>
+<p>No VLAN interfaces defined</p>
+<h3 id="vxlan-interface">VXLAN Interface<a class="headerlink" href="#vxlan-interface" title="Permanent link">#</a></h3>
+<p>No VXLAN interface defined</p>
+<h2 id="routing">Routing<a class="headerlink" href="#routing" title="Permanent link">#</a></h2>
+<h3 id="virtual-router-mac-address">Virtual Router MAC Address<a class="headerlink" href="#virtual-router-mac-address" title="Permanent link">#</a></h3>
+<p>IP Virtual Router MAC Address is not defined</p>
+<h3 id="ip-routing">IP Routing<a class="headerlink" href="#ip-routing" title="Permanent link">#</a></h3>
+<h4 id="ip-routing-summary">IP Routing Summary<a class="headerlink" href="#ip-routing-summary" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>VRF</th>
+<th>Routing Enabled</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>default</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+<h4 id="ip-routing-device-configuration">IP Routing Device Configuration<a class="headerlink" href="#ip-routing-device-configuration" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>
+</code></pre></div>
+<h3 id="ipv6-routing">IPv6 Routing<a class="headerlink" href="#ipv6-routing" title="Permanent link">#</a></h3>
+<h4 id="ipv6-routing-summary">IPv6 Routing Summary<a class="headerlink" href="#ipv6-routing-summary" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>VRF</th>
+<th>Routing Enabled</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>default</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+<h3 id="static-routes">Static Routes<a class="headerlink" href="#static-routes" title="Permanent link">#</a></h3>
+<h3 id="router-isis">Router ISIS<a class="headerlink" href="#router-isis" title="Permanent link">#</a></h3>
+<p>Router ISIS not defined</p>
+<h2 id="router-bgp">Router BGP<a class="headerlink" href="#router-bgp" title="Permanent link">#</a></h2>
+<p>Router BGP not defined</p>
+<h3 id="router-bfd">Router BFD<a class="headerlink" href="#router-bfd" title="Permanent link">#</a></h3>
+<h4 id="router-bfd-multihop-summary">Router BFD Multihop Summary<a class="headerlink" href="#router-bfd-multihop-summary" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Interval</th>
+<th>Minimum RX</th>
+<th>Multiplier</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>300</td>
+<td>300</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>*No device configuration required - default values</p>
+<h2 id="multicast">Multicast<a class="headerlink" href="#multicast" title="Permanent link">#</a></h2>
+<h3 id="ip-igmp-snooping">IP IGMP Snooping<a class="headerlink" href="#ip-igmp-snooping" title="Permanent link">#</a></h3>
+<h3 id="router-multicast">Router Multicast<a class="headerlink" href="#router-multicast" title="Permanent link">#</a></h3>
+<p>Routing multicast not defined</p>
+<h3 id="router-pim-sparse-mode">Router PIM Sparse Mode<a class="headerlink" href="#router-pim-sparse-mode" title="Permanent link">#</a></h3>
+<p>Router PIM sparse mode not defined</p>
+<h2 id="filters">Filters<a class="headerlink" href="#filters" title="Permanent link">#</a></h2>
+<h3 id="community-lists">Community Lists<a class="headerlink" href="#community-lists" title="Permanent link">#</a></h3>
+<p>Community Lists not defined</p>
+<h3 id="peer-filters">Peer Filters<a class="headerlink" href="#peer-filters" title="Permanent link">#</a></h3>
+<p>No Peer Filters defined</p>
+<h3 id="prefix-lists">Prefix Lists<a class="headerlink" href="#prefix-lists" title="Permanent link">#</a></h3>
+<p>Prefix lists not defined</p>
+<h3 id="ipv6-prefix-lists">IPv6 Prefix Lists<a class="headerlink" href="#ipv6-prefix-lists" title="Permanent link">#</a></h3>
+<p>IPv6 Prefix lists not defined</p>
+<h3 id="route-maps">Route Maps<a class="headerlink" href="#route-maps" title="Permanent link">#</a></h3>
+<p>No route maps defined</p>
+<h3 id="ip-extended-communities">IP Extended Communities<a class="headerlink" href="#ip-extended-communities" title="Permanent link">#</a></h3>
+<p>No Extended community defined</p>
+<h2 id="acl">ACL<a class="headerlink" href="#acl" title="Permanent link">#</a></h2>
+<h3 id="standard-access-lists">Standard Access-lists<a class="headerlink" href="#standard-access-lists" title="Permanent link">#</a></h3>
+<p>Standard Access-lists not defined</p>
+<h3 id="extended-access-lists">Extended Access-lists<a class="headerlink" href="#extended-access-lists" title="Permanent link">#</a></h3>
+<p>Extended Access-lists not defined</p>
+<h3 id="ipv6-standard-access-lists">IPv6 Standard Access-lists<a class="headerlink" href="#ipv6-standard-access-lists" title="Permanent link">#</a></h3>
+<p>IPv6 Standard Access-lists not defined</p>
+<h3 id="ipv6-extended-access-lists">IPv6 Extended Access-lists<a class="headerlink" href="#ipv6-extended-access-lists" title="Permanent link">#</a></h3>
+<p>IPv6 Extended Access-lists not defined</p>
+<h2 id="vrf-instances">VRF Instances<a class="headerlink" href="#vrf-instances" title="Permanent link">#</a></h2>
+<p>No VRFs defined</p>
+<h2 id="virtual-source-nat">Virtual Source NAT<a class="headerlink" href="#virtual-source-nat" title="Permanent link">#</a></h2>
+<p>Virtual Source NAT is not defined</p>
+<h2 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">#</a></h2>
+<p>No Platform parameters defined</p>
+<h2 id="router-l2-vpn">Router L2 VPN<a class="headerlink" href="#router-l2-vpn" title="Permanent link">#</a></h2>
+<p>Router L2 VPN not defined</p>
+<h2 id="ip-dhcp-relay">IP DHCP Relay<a class="headerlink" href="#ip-dhcp-relay" title="Permanent link">#</a></h2>
+<p>IP DHCP Relay not defined</p>
+<h3 id="custom-templates">Custom Templates<a class="headerlink" href="#custom-templates" title="Permanent link">#</a></h3>
+<p>No Custom Templates Defined</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 Arista Networks
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../../assets/javascripts/vendor.c51dfa35.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.eaaa3931.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../../../../..",
+          features: ["instant"],
+          search: Object.assign({
+            worker: "../../../../../assets/javascripts/worker/search.58d22e8e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

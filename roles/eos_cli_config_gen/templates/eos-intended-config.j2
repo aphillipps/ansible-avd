@@ -37,6 +37,8 @@ hostname {{ inventory_hostname }}
 {% include 'eos/name-servers.j2' %}
 {# dns domain #}
 {% include 'eos/dns-domain.j2' %}
+{# domain-list #}
+{% include 'eos/domain-list.j2' %}
 {# ntp servers #}
 {% include 'eos/ntp-servers.j2' %}
 {# radius servers #}
@@ -51,6 +53,8 @@ hostname {{ inventory_hostname }}
 {% include 'eos/redundancy.j2' %}
 {# snmp settings #}
 {% include 'eos/snmp-settings.j2' %}
+{# hardware speed-group configuration #}
+{% include 'eos/speed-group.j2' %}
 {# spanning-tree #}
 {% include 'eos/spanning-tree.j2' %}
 {# platform #}
@@ -108,6 +112,8 @@ hostname {{ inventory_hostname }}
 {% include 'eos/standard-access-lists.j2' %}
 {# IP Routing #}
 {% include 'eos/ip-routing.j2' %}
+{# IP Extended Communities #}
+{% include 'eos/ip-extended-communities.j2' %}
 {# Prefix-lists #}
 {% include 'eos/prefix-lists.j2' %}
 {# IPv6 Prefix-lists #}
@@ -154,5 +160,7 @@ hostname {{ inventory_hostname }}
 {% include 'eos/management-security.j2' %}
 {# management ssh #}
 {% include 'eos/management-ssh.j2' %}
+{# custom templates #}
+{% include 'eos/custom-templates.j2' %}
 !
 end

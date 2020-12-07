@@ -260,6 +260,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#release-111" class="md-nav__link">
+    Release 1.1.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#release-110" class="md-nav__link">
     Release 1.1.0
   </a>
@@ -844,6 +851,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#release-111" class="md-nav__link">
+    Release 1.1.1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#release-110" class="md-nav__link">
     Release 1.1.0
   </a>
@@ -894,6 +908,7 @@
 <p><strong>Table of Contents:</strong></p>
 <ul>
 <li><a href="#release-notes-for-ansible-avd-11x">Release Notes For Ansible AVD 1.1.x</a><ul>
+<li><a href="#release-111">Release 1.1.1</a></li>
 <li><a href="#release-110">Release 1.1.0</a><ul>
 <li><a href="#data-model-modifications">Data model modifications</a></li>
 </ul>
@@ -901,6 +916,18 @@
 </ul>
 </li>
 </ul>
+<h3 id="release-111">Release 1.1.1<a class="headerlink" href="#release-111" title="Permanent link">#</a></h3>
+<p>Provides enhancements and bug fixes to the following roles:</p>
+<p><strong>Updated Roles:</strong></p>
+<ul>
+<li>eos_l3ls_evpn</li>
+<li>eos_cli_config_gen</li>
+<li>eos_validate_state</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>For detailed information please see the <a href="https://github.com/aristanetworks/ansible-avd/releases/tag/v1.1.1">release tag</a></p>
+</div>
 <h3 id="release-110">Release 1.1.0<a class="headerlink" href="#release-110" title="Permanent link">#</a></h3>
 <p>Provide major enhancements and data model has been updated!</p>
 <blockquote>
@@ -936,47 +963,10 @@
             <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.30.1/24</span>
 </code></pre></div>
 <p><strong>eos_cli_config_gen:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Vlan Interfaces</span>
-<span class="nt">vlan_interfaces</span><span class="p">:</span>
-  <span class="nt">&lt;vlan_id&gt;</span><span class="p">:</span>
-    <span class="c1"># ip_address: 10.1.40.1/24</span>
-    <span class="c1"># virtual: true &lt; deprecated - now combined key &gt;</span>
-    <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.40.1/24</span>
-
-<span class="c1"># Route maps</span>
-<span class="nt">route_maps</span><span class="p">:</span>
-  <span class="nt">&lt;route_map&gt;</span><span class="p">:</span>
-    <span class="nt">sequence_numbers</span><span class="p">:</span>
-      <span class="nt">10</span><span class="p">:</span>
-        <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">permit</span>
-        <span class="c1"># match: &quot;ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY&quot;</span>
-        <span class="c1"># &lt; match is now a list, to allow multiple matches &gt;</span>
-        <span class="nt">match</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="s">&quot;ip</span><span class="nv"> </span><span class="s">address</span><span class="nv"> </span><span class="s">prefix-list</span><span class="nv"> </span><span class="s">PL-LOOPBACKS-EVPN-OVERLAY&quot;</span>
-
-<span class="c1"># Router BGP &gt; bfd configuration</span>
-<span class="nt">router_bgp</span><span class="p">:</span>
-  <span class="nt">peer_groups</span><span class="p">:</span>
-    <span class="nt">&lt;peer_group_1&gt;</span><span class="p">:</span>
-      <span class="c1"># fall_over_bfd: true &lt; deprecated &gt;</span>
-      <span class="nt">bfd</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="nt">vlan_aware_bundles</span><span class="p">:</span>
-    <span class="nt">&lt;vlan_aware_bundle&gt;</span><span class="p">:</span>
-      <span class="nt">route_targets</span><span class="p">:</span>
-      <span class="c1"># &lt; import/export/ both &gt;:</span>
-      <span class="c1">#   asn: &quot;14:14&quot; &lt; route_targets.&lt;import/export/both&gt; now a list &gt;</span>
-        <span class="nt">&lt; import/export/both&gt;</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="s">&quot;14:14&quot;</span>
-  <span class="nt">vrfs</span><span class="p">:</span>
-    <span class="nt">&lt;vrf&gt;</span><span class="p">:</span>
-      <span class="nt">route_targets</span><span class="p">:</span>
-        <span class="nt">&lt; import/export/both&gt;</span><span class="p">:</span>
-      <span class="c1">#   address_family: evpn &lt; make address family the key &gt;</span>
-      <span class="c1">#   asn: &quot;14:14&quot; &lt; asn as list &gt;</span>
-          <span class="nt">evpn</span><span class="p">:</span>
-            <span class="p p-Indicator">-</span> <span class="s">&quot;14:14&quot;</span>
-</code></pre></div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>For detailed information please see the <a href="https://github.com/aristanetworks/ansible-avd/releases/tag/v1.1.0">release tag</a></p>
+</div>
                 
               
               

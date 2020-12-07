@@ -640,6 +640,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#domain-list" class="md-nav__link">
+    Domain-List
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#name-servers" class="md-nav__link">
     Name Servers
   </a>
@@ -691,6 +698,13 @@
           <li class="md-nav__item">
   <a href="#snmp-settings" class="md-nav__link">
     SNMP Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#speed-group-settings" class="md-nav__link">
+    Speed-Group Settings
   </a>
   
 </li>
@@ -941,6 +955,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ip-extended-community-lists" class="md-nav__link">
+    IP Extended Community Lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#route-maps" class="md-nav__link">
     Route Maps
   </a>
@@ -1041,6 +1062,13 @@
           <li class="md-nav__item">
   <a href="#management-ssh" class="md-nav__link">
     Management SSH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#custom-templates" class="md-nav__link">
+    Custom Templates
   </a>
   
 </li>
@@ -1510,6 +1538,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#domain-list" class="md-nav__link">
+    Domain-List
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#name-servers" class="md-nav__link">
     Name Servers
   </a>
@@ -1561,6 +1596,13 @@
           <li class="md-nav__item">
   <a href="#snmp-settings" class="md-nav__link">
     SNMP Settings
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#speed-group-settings" class="md-nav__link">
+    Speed-Group Settings
   </a>
   
 </li>
@@ -1811,6 +1853,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ip-extended-community-lists" class="md-nav__link">
+    IP Extended Community Lists
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#route-maps" class="md-nav__link">
     Route Maps
   </a>
@@ -1915,6 +1964,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#custom-templates" class="md-nav__link">
+    Custom Templates
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1977,6 +2033,7 @@
 <li><a href="#lldp">LLDP</a></li>
 <li><a href="#logging">Logging</a></li>
 <li><a href="#domain-lookup">Domain Lookup</a></li>
+<li><a href="#domain-list">Domain-List</a></li>
 <li><a href="#name-servers">Name Servers</a></li>
 <li><a href="#dns-domain">DNS Domain</a></li>
 <li><a href="#ntp-servers">NTP Servers</a></li>
@@ -1985,6 +2042,7 @@
 <li><a href="#sflow">Sflow</a></li>
 <li><a href="#redundancy">Redundancy</a></li>
 <li><a href="#snmp-settings">SNMP Settings</a></li>
+<li><a href="#speed-group-settings">Hardware Speed-Group Settings</a></li>
 <li><a href="#spanning-tree">Spanning Tree</a></li>
 <li><a href="#platform">Platform</a></li>
 <li><a href="#tacacs-servers">Tacacs+ Servers</a></li>
@@ -2020,6 +2078,7 @@
 <li><a href="#ipv6-routing">IPv6 Routing</a></li>
 <li><a href="#mlag-configuration">MLAG Configuration</a></li>
 <li><a href="#community-lists">Community Lists</a></li>
+<li><a href="#ip-extended-community-lists">IP Extended Community Lists</a></li>
 <li><a href="#route-maps">Route Maps</a></li>
 <li><a href="#peer-filters">Peer Filters</a></li>
 <li><a href="#router-bgp-configuration">Router BGP Configuration</a></li>
@@ -2035,6 +2094,7 @@
 <li><a href="#management-console">Management Console</a></li>
 <li><a href="#management-security">Management Security</a></li>
 <li><a href="#management-ssh">Management SSH</a></li>
+<li><a href="#custom-templates">Custom Templates</a></li>
 </ul>
 </li>
 <li><a href="#license">License</a></li>
@@ -2104,6 +2164,7 @@
   <span class="nt">smashexcludes</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
   <span class="nt">ingestexclude</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">list</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
 </code></pre></div>
+<p>You can either provide a list of IPs to target on-premise Cloudvision cluster or either use DNS name for your Cloudvision as a Service instance. If you have both on-prem and CVaaS defined, only on-prem is going to be configured.</p>
 <h4 id="ip-dhcp-relay">IP DHCP Relay<a class="headerlink" href="#ip-dhcp-relay" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">ip_dhcp_relay</span><span class="p">:</span>
   <span class="nt">information_option</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
@@ -2117,10 +2178,12 @@
 </code></pre></div>
 <h4 id="ip-igmp-snooping">IP IGMP Snooping<a class="headerlink" href="#ip-igmp-snooping" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">ip_igmp_snooping</span><span class="p">:</span>
+  <span class="nt">globally_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false (default is true) &gt;</span>
   <span class="nt">vlans</span><span class="p">:</span>
     <span class="nt">&lt; vlan_id &gt;</span><span class="p">:</span>
       <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
 </code></pre></div>
+<p><code>globally_enabled</code> allows to activate or deactivate IGMP snooping for all vlans where <code>vlans</code> allows user to activate / deactivate IGMP snooping per vlan.</p>
 <h4 id="event-monitor">Event Monitor<a class="headerlink" href="#event-monitor" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">event_monitor</span><span class="p">:</span>
   <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
@@ -2181,6 +2244,11 @@
   <span class="nt">source_interfaces</span><span class="p">:</span>
     <span class="nt">&lt; source_interface_1 &gt;</span><span class="p">:</span>
       <span class="nt">vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vrf_name &gt;</span>
+</code></pre></div>
+<h4 id="domain-list">Domain-List<a class="headerlink" href="#domain-list" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">domain_list</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; domain_name_1 &gt;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; domain_name_2 &gt;</span>
 </code></pre></div>
 <h4 id="name-servers">Name Servers<a class="headerlink" href="#name-servers" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">name_server</span><span class="p">:</span>
@@ -2298,6 +2366,15 @@
       <span class="nt">enable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vrf_name &gt;</span>
       <span class="nt">enable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+</code></pre></div>
+<h4 id="speed-group-settings">Speed-Group Settings<a class="headerlink" href="#speed-group-settings" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">hardware</span><span class="p">:</span>
+  <span class="nt">speed_groups</span><span class="p">:</span>
+    <span class="nt">1</span><span class="p">:</span>
+      <span class="nt">serdes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;10g | 25g&gt;</span>
+    <span class="nt">2</span><span class="p">:</span>
+      <span class="nt">serdes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;10g | 25g&gt;</span>
+    <span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
 <h4 id="spanning-tree">Spanning Tree<a class="headerlink" href="#spanning-tree" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">spanning_tree</span><span class="p">:</span>
@@ -2425,6 +2502,8 @@
     <span class="nt">trunk_groups</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; trunk_group_name_1 &gt;</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; trunk_group_name_2 &gt;</span>
+    <span class="nt">lacp_fallback_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;timeout in seconds, 0-300 (default 90) &gt;</span>
+    <span class="nt">lacp_fallback_mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; individual | static &gt;</span>
     <span class="nt">qos</span><span class="p">:</span>
       <span class="nt">trust</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; cos | dscp &gt;</span>
   <span class="nt">&lt; Port-Channel_interface_2 &gt;</span><span class="p">:</span>
@@ -2494,6 +2573,7 @@
     <span class="nt">ipv6_access_group_out</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ipv6_access_list_name &gt;</span>
     <span class="nt">ospf_network_point_to_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">ospf_area</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ospf_area &gt;</span>
+    <span class="nt">ospf_cost</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ospf_cost &gt;</span>
     <span class="nt">ospf_authentication</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; none | simple | message-digest &gt;</span>
     <span class="nt">ospf_authentication_key</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted_password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
     <span class="nt">ospf_message_digest_keys</span><span class="p">:</span>
@@ -2528,6 +2608,19 @@
     <span class="nt">spanning_tree_bpduguard</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">spanning_tree_portfast</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; edge | network &gt;</span>
     <span class="nt">vmtracer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+    <span class="nt">storm_control</span><span class="p">:</span>
+      <span class="nt">all</span><span class="p">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Configure maximum storm-control level &gt;</span>
+        <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; percent | pps &gt;</span>
+      <span class="nt">broadcast</span><span class="p">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Configure maximum storm-control level &gt;</span>
+        <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; percent | pps &gt;</span>
+      <span class="nt">multicast</span><span class="p">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Configure maximum storm-control level &gt;</span>
+        <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; percent | pps &gt;</span>
+      <span class="s">&#39;unknown-unicast&#39;</span><span class="p p-Indicator">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Configure maximum storm-control level &gt;</span>
+        <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; percent | pps &gt;</span>
 </code></pre></div>
 <h4 id="loopback-interfaces">Loopback Interfaces<a class="headerlink" href="#loopback-interfaces" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">loopback_interfaces</span><span class="p">:</span>
@@ -2564,12 +2657,12 @@
     <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
     <span class="nt">shutdown</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vrf_name &gt;</span>
+    <span class="nt">arp_aging_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; arp_timeout &gt;</span>
     <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
     <span class="nt">ip_address_secondary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
     <span class="nt">ip_router_virtual_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address &gt;</span>
     <span class="nt">ip_router_virtual_address_secondary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address &gt;</span>
     <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
-    <span class="nt">mtu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mtu &gt;</span>
     <span class="nt">ip_helpers</span><span class="p">:</span>
       <span class="nt">&lt; ip_helper_address_1 &gt;</span><span class="p">:</span>
         <span class="nt">source_interface</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; source_interface_name &gt;</span>
@@ -2598,6 +2691,7 @@
           <span class="nt">administrative_distance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-255 &gt;</span>
     <span class="nt">ospf_network_point_to_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">ospf_area</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ospf_area &gt;</span>
+    <span class="nt">ospf_cost</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ospf_cost &gt;</span>
     <span class="nt">ospf_authentication</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; none | simple | message-digest &gt;</span>
     <span class="nt">ospf_authentication_key</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">encrypted_password</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
     <span class="nt">ospf_message_digest_keys</span><span class="p">:</span>
@@ -2790,6 +2884,15 @@
     <span class="nt">action</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">action</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
   <span class="nt">&lt; community_list_name_2 &gt;</span><span class="p">:</span>
     <span class="nt">action</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">action</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+</code></pre></div>
+<h4 id="ip-extended-community-lists">IP Extended Community Lists<a class="headerlink" href="#ip-extended-community-lists" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">ip_extcommunity_lists</span><span class="p">:</span>
+  <span class="nt">&lt; community_list_name_1 &gt;</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; permit | deny &gt;</span>
+      <span class="nt">extcommunities</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">communities</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
+  <span class="nt">&lt; community_list_name_2 &gt;</span><span class="p">:</span>
+    <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; permit | deny &gt;</span>
+      <span class="nt">extcommunities</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">communities</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">string</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
 </code></pre></div>
 <h4 id="route-maps">Route Maps<a class="headerlink" href="#route-maps" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">route_maps</span><span class="p">:</span>
@@ -3148,6 +3251,11 @@
       <span class="nt">enable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">&lt; vrf_name_2 &gt;</span><span class="p">:</span>
       <span class="nt">enable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+</code></pre></div>
+<h4 id="custom-templates">Custom Templates<a class="headerlink" href="#custom-templates" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code><span class="nt">custom_templates</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; template 1 relative path below playbook directory &gt;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; template 2 relative path below playbook directory &gt;</span>
 </code></pre></div>
 <h3 id="license">License<a class="headerlink" href="#license" title="Permanent link">#</a></h3>
 <p>Project is published under <a href="../../LICENSE">Apache 2.0 License</a></p>

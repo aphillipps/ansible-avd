@@ -1298,6 +1298,7 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4 address &gt;</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4 address &gt;</span>
   <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4 address &gt;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; CV as a Service hostname &gt;</span>
 <span class="nt">cvp_ingestauth_key</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; CloudVision Ingest Authentication key &gt;</span>
 <span class="nt">terminattr_ingestgrpcurl_port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; port_number | default -&gt; 9910 &gt;</span>
 <span class="nt">terminattr_smashexcludes</span><span class="p">:</span> <span class="s">&quot;&lt;</span><span class="nv"> </span><span class="s">smash</span><span class="nv"> </span><span class="s">excludes</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">default</span><span class="nv"> </span><span class="s">-&gt;</span><span class="nv"> </span><span class="s">ale,flexCounter,hardware,kni,pulse,strata</span><span class="nv"> </span><span class="s">&gt;&quot;</span>
@@ -1342,6 +1343,9 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 <span class="nt">mac_address_table</span><span class="p">:</span>
   <span class="nt">aging_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; time_in_seconds &gt;</span>
 </code></pre></div>
+<blockquote>
+<p>In <code>cvp_instance_ips</code> you can either provide a list of IPs to target on-premise Cloudvision cluster or either use DNS name for your Cloudvision as a Service instance. If you have both on-prem and CVaaS defined, only on-prem is going to be configured.</p>
+</blockquote>
 <p><strong>Example:</strong></p>
 <p>note: Default values are commented</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Timezone</span>
@@ -1411,9 +1415,14 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 <ul>
 <li>The fabric underlay and overlay topology variables, define the elements related to build the L3 Leaf and Spine fabric.</li>
 <li>The following underlay routing protocols are supported:<ul>
-<li>BGP (default)</li>
+<li>EBGP (default)</li>
 <li>OSPF.</li>
 <li>ISIS.</li>
+</ul>
+</li>
+<li>The following overlay routing protocols are supported:<ul>
+<li>EBGP (default)</li>
+<li>IBGP (only with OSPF or ISIS in underlay)</li>
 </ul>
 </li>
 <li>Only summary network addresses need to be defined. IP addresses are then assigned to each node, based on its unique device id.<ul>
@@ -1427,7 +1436,8 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 <span class="nt">fabric_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Fabric_Name &gt;</span>
 
 <span class="c1"># Underlay routing protocol | Required.</span>
-<span class="nt">underlay_routing_protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; BGP or OSPF or ISIS | Default -&gt; BGP &gt;</span>
+<span class="nt">underlay_routing_protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; EBGP or OSPF or ISIS | Default -&gt; EBGP &gt;</span>
+<span class="nt">overlay_routing_protocol</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;EBGP or IBGP | default -&gt; EBGP &gt;</span>
 
 <span class="c1"># Underlay OSFP | Required when &lt; underlay_routing_protocol &gt; == OSPF</span>
 <span class="nt">underlay_ospf_process_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; process_id | Default -&gt; 100 &gt;</span>
@@ -1438,6 +1448,9 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 <span class="c1"># Underlay OSFP | Required when &lt; underlay_routing_protocol &gt; == ISIS</span>
 <span class="nt">isis_area_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; isis area | Default -&gt; &quot;49.0001&quot; &gt;</span>
 <span class="nt">isis_site_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; isis site ID | Default -&gt; &quot;0001&quot; &gt;</span>
+
+<span class="c1"># AS number to use to configure overlay when &lt; overlay_routing_protocol &gt; == IBGP</span>
+<span class="nt">bgp_as</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; AS number &gt;</span>
 
 <span class="c1"># Point to Point Links MTU | Required.</span>
 <span class="nt">p2p_uplinks_mtu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0-9216 | default -&gt; 9000 &gt;</span>
@@ -1497,6 +1510,10 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
 
 <span class="c1"># Enable vlan aware bundles for EVPN MAC-VRF | Required.</span>
 <span class="nt">vxlan_vlan_aware_bundles</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean | default -&gt; false &gt;</span>
+
+<span class="c1"># Disable IGMP snooping at fabric level.</span>
+<span class="c1"># If set, it overrides per vlan settings</span>
+<span class="nt">default_igmp_snooping</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean | default -&gt; true &gt;</span>
 
 <span class="c1"># BFD Multihop tunning | Required.</span>
 <span class="nt">bfd_multihop</span><span class="p">:</span>
@@ -1620,6 +1637,9 @@ The variables should be applied to all devices in the fabric.</p>
       <span class="c1"># Unique identifier | Required.</span>
       <span class="nt">id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; integer &gt;</span>
 
+      <span class="c1"># Route Reflector when &lt; overlay_routing_protocol &gt; == IBGP</span>
+      <span class="nt">bgp_route_reflector</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; boolean &gt;</span>
+
       <span class="c1"># Node management IP address | Required.</span>
       <span class="nt">mgmt_ip</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
     <span class="nt">&lt; inventory_hostname &gt;</span><span class="p">:</span>
@@ -1673,6 +1693,9 @@ The variables should be applied to all devices in the fabric.</p>
     <span class="c1"># Virtual router mac address for anycast gateway | Required.</span>
     <span class="nt">virtual_router_mac_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mac address &gt;</span>
 
+    <span class="c1"># Activate or deactivate IGMP snooping for all l3leaf devices | Optional default is true</span>
+    <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+
   <span class="c1"># The node groups are group of one or two nodes where specific variables can be defined related to the topology</span>
   <span class="c1"># and allowed L3 and L2 network services.</span>
   <span class="c1"># All variables defined under `defaults` dictionary can be defined under each node group to override it.</span>
@@ -1689,6 +1712,9 @@ The variables should be applied to all devices in the fabric.</p>
       <span class="nt">filter</span><span class="p">:</span>
         <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tenant_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tenant_2 &gt; | default all</span> <span class="p p-Indicator">]</span>
         <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt; | default -&gt; all</span> <span class="p p-Indicator">]</span><span class="err">]</span>
+
+      <span class="c1"># Activate or deactivate IGMP snooping for node groups devices</span>
+      <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
 
       <span class="c1"># Define one or two nodes - same name as inventory_hostname | Required</span>
       <span class="c1"># When two nodes are defined, this will create an MLAG pair.</span>
@@ -1809,6 +1835,9 @@ The variables should be applied to all devices in the fabric.</p>
     <span class="c1"># Spanning tree priority | Required.</span>
     <span class="nt">spanning_tree_priority</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; spanning-tree priority &gt;</span>
 
+    <span class="c1"># Activate or deactivate IGMP snooping for all l2leaf devices | Optional default is true</span>
+    <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+
   <span class="c1"># The node groups are group of one or two nodes where specific variables can be defined related to the topology</span>
   <span class="c1"># and allowed L3 and L2 network services.</span>
   <span class="c1"># All variables defined under `defaults` dictionary can be defined under each node group to override it.</span>
@@ -1822,6 +1851,9 @@ The variables should be applied to all devices in the fabric.</p>
       <span class="nt">filter</span><span class="p">:</span>
         <span class="nt">tenants</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tenant_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tenant_2 &gt; | default all</span> <span class="p p-Indicator">]</span>
         <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">&lt; tag_1 &gt;</span><span class="p p-Indicator">,</span> <span class="nv">&lt; tag_2 &gt; | default -&gt; all</span> <span class="p p-Indicator">]</span><span class="err">]</span>
+
+      <span class="c1"># Activate or deactivate IGMP snooping for node groups devices</span>
+      <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
 
       <span class="c1"># Define one or two nodes - same name as inventory_hostname.</span>
       <span class="c1"># When two nodes are defined, this will create an MLAG pair.</span>
@@ -1910,6 +1942,45 @@ The variables should be applied to all devices in the fabric.</p>
 <span class="nt">mlag_ibgp_peering_vrfs</span><span class="p">:</span>
   <span class="nt">base_vlan</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-4000 | default -&gt; 3000 &gt;</span>
 
+<span class="c1"># Specify RD type | Optional</span>
+<span class="c1"># Route Distinguisher (RD) for L2 / L3 services is set to &lt;overlay_loopback&gt;:&lt;vni&gt; per default.</span>
+<span class="c1"># By configuring evpn_rd_type the Administrator subfield (first part of RD) can be set to other values.</span>
+<span class="c1">#</span>
+<span class="c1"># Note:</span>
+<span class="c1"># RD is a 48-bit value which is split into &lt;16-bit&gt;:&lt;32-bit&gt; or &lt;32-bit&gt;:&lt;16-bit&gt;.</span>
+<span class="c1"># For loopback or 32-bit ASN/number the VNI can only be a 16-bit number.</span>
+<span class="c1"># For 16-bit ASN/number the VNI can be a 32-bit number.</span>
+<span class="nt">evpn_rd_type</span><span class="p">:</span>
+  <span class="nt">admin_subfield</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; &quot;overlay_loopback&quot; | &quot;vtep_loopback&quot; | &quot;leaf_asn&quot; | &quot;spine_asn&quot; | &lt; IPv4 Address &gt; | &lt;0-65535&gt; | &lt;0-4294967295&gt; | default -&gt; &quot;overlay_loopback&quot; &gt;</span>
+
+<span class="c1"># Specify RT type | Optional</span>
+<span class="c1"># Route Target (RT) for L2 / L3 services is set to &lt;vni&gt;:&lt;vni&gt; per default</span>
+<span class="c1"># By configuring evpn_rt_type the Administrator subfield (first part of RT) can be set to other values.</span>
+<span class="c1">#</span>
+<span class="c1"># Note:</span>
+<span class="c1"># RT is a 48-bit value which is split into &lt;16-bit&gt;:&lt;32-bit&gt; or &lt;32-bit&gt;:&lt;16-bit&gt;.</span>
+<span class="c1"># For 32-bit ASN/number the VNI can only be a 16-bit number.</span>
+<span class="c1"># For 16-bit ASN/number the VNI can be a 32-bit number.</span>
+<span class="nt">evpn_rt_type</span><span class="p">:</span>
+  <span class="nt">admin_subfield</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; &quot;leaf_asn&quot; | &quot;spine_asn&quot; | &quot;vni&quot; | &lt;0-65535&gt; | &lt;0-4294967295&gt; | default -&gt; &quot;vni&quot; &gt;</span>
+
+<span class="c1"># Optional profiles to apply on SVI interfaces</span>
+<span class="c1"># Each profile can support all or some of the following keys according your own needs.</span>
+<span class="c1"># Keys are the same used under SVI.</span>
+<span class="nt">svi_profiles</span><span class="p">:</span>
+  <span class="nt">&lt; profile_name &gt;</span><span class="p">:</span>
+    <span class="nt">mtu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mtu &gt;</span>
+    <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+    <span class="nt">ip_virtual_router_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+    <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+    <span class="nt">ip_address_virtual_secondary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+    <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false | default true (eos) &gt;</span>
+    <span class="nt">ip_helpers</span><span class="p">:</span>
+      <span class="nt">&lt; IPv4 dhcp server IP &gt;</span><span class="p">:</span>
+        <span class="nt">source_interface</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface-name &gt;</span>
+        <span class="nt">source_vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; VRF to originate DHCP relay packets to DHCP server. If not set, uses current VRF &gt;</span>
+
+
 <span class="c1"># Dictionary of tenants, to define network services: L3 VRFs and L2 VLNAS.</span>
 
 <span class="nt">tenants</span><span class="p">:</span>
@@ -1933,6 +2004,12 @@ The variables should be applied to all devices in the fabric.</p>
         <span class="c1"># The VRF VNI range is limited.</span>
         <span class="nt">vrf_vni</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;1-1024&gt;</span>
 
+        <span class="c1"># IP Helper for DHCP relay</span>
+        <span class="nt">ip_helpers</span><span class="p">:</span>
+          <span class="nt">&lt; IPv4 dhcp server IP &gt;</span><span class="p">:</span>
+            <span class="nt">source_interface</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface-name &gt;</span>
+            <span class="nt">source_vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; VRF to originate DHCP relay packets to DHCP server. If not set, uses current VRF &gt;</span>
+
         <span class="c1"># Enable VTEP Network diagnostics | Optional.</span>
         <span class="c1"># This will create a loopback with virtual source-nat enable to perform diagnostics from the switch.</span>
         <span class="nt">vtep_diagnostic</span><span class="p">:</span>
@@ -1955,6 +2032,10 @@ The variables should be applied to all devices in the fabric.</p>
             <span class="c1"># The vni_override allows us to override this value and statically define it. | Optional</span>
             <span class="nt">vni_override</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-16777215 &gt;</span>
 
+            <span class="c1"># SVI profile to apply</span>
+            <span class="c1"># If variables are configured in profile AND SVI, SVI information will overwrite profile.</span>
+            <span class="nt">profile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; svi-profile-name &gt;</span>
+
             <span class="c1"># vlan name + svi description. | Required</span>
             <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
 
@@ -1964,15 +2045,24 @@ The variables should be applied to all devices in the fabric.</p>
             <span class="c1"># Enable or disable interface</span>
             <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
 
+            <span class="c1"># Enable IGMP Snooping</span>
+            <span class="nt">igmp_snooping_enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false | default true (eos) &gt;</span>
+
             <span class="c1"># ip address virtual to configure VXLAN Anycast IP address</span>
             <span class="c1"># Conserves IP addresses in VXLAN deployments as it doesn&#39;t require unique IP addresses on each node.</span>
             <span class="c1"># Optional</span>
-            <span class="l l-Scalar l-Scalar-Plain">ip_address_virtual:</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+            <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
 
             <span class="c1"># ip virtual-router address</span>
             <span class="c1"># note, also requires an IP address to be configured on the SVI where it is applied.</span>
             <span class="c1"># Optional</span>
             <span class="nt">ip_virtual_router_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+            <span class="c1"># IP Helper for DHCP relay</span>
+            <span class="nt">ip_helpers</span><span class="p">:</span>
+              <span class="nt">&lt; IPv4 dhcp server IP &gt;</span><span class="p">:</span>
+                <span class="nt">source_interface</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; interface-name &gt;</span>
+                <span class="nt">source_vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; VRF to originate DHCP relay packets to DHCP server. If not set, uses current VRF &gt;</span>
 
             <span class="c1"># Define node specific configuration, such as unique IP addresses.</span>
             <span class="nt">nodes</span><span class="p">:</span>
@@ -1982,6 +2072,9 @@ The variables should be applied to all devices in the fabric.</p>
 
               <span class="nt">&lt; l3_leaf_inventory_hostname_2 &gt;</span><span class="p">:</span>
                 <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+
+            <span class="c1"># Defined interface MTU</span>
+            <span class="nt">mtu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mtu &gt;</span>
 
           <span class="nt">&lt; 1-4096 &gt;</span><span class="p">:</span>
             <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
@@ -2071,6 +2164,7 @@ The variables should be applied to all devices in the fabric.</p>
             <span class="nt">tags</span><span class="p">:</span> <span class="p p-Indicator">[</span> <span class="nv">opzone</span> <span class="p p-Indicator">]</span>
             <span class="nt">enabled</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
             <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.1.10.0/24</span>
+            <span class="nt">mtu</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1400</span>
           <span class="nt">111</span><span class="p">:</span>
             <span class="nt">vni_override</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">50111</span>
             <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Tenant_A_OP_Zone_2</span>
