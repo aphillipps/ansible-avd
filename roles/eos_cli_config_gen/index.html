@@ -2388,6 +2388,10 @@
 <div class="highlight"><pre><span></span><code><span class="nt">platform</span><span class="p">:</span>
   <span class="nt">trident</span><span class="p">:</span>
     <span class="nt">forwarding_table_partition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; partition &gt;</span>
+  <span class="nt">sand</span><span class="p">:</span>
+    <span class="nt">lag</span><span class="p">:</span>
+      <span class="nt">hardware_only</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
+      <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; mode | default -&gt; 1024x16 &gt;</span>
 </code></pre></div>
 <h4 id="tacacs-servers">Tacacs+ Servers<a class="headerlink" href="#tacacs-servers" title="Permanent link">#</a></h4>
 <div class="highlight"><pre><span></span><code><span class="nt">tacacs_servers</span><span class="p">:</span>
@@ -2818,6 +2822,7 @@
     <span class="nt">distance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-255 &gt;</span>
     <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0-4294967295 &gt;</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+    <span class="nt">metric</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0-4294967295 &gt;</span>
   <span class="p p-Indicator">-</span> <span class="nt">destination_address_prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_network/Mask &gt;</span>
     <span class="nt">gateway</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address &gt;</span>
 </code></pre></div>
@@ -2830,6 +2835,7 @@
     <span class="nt">distance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 1-255 &gt;</span>
     <span class="nt">tag</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0-4294967295 &gt;</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; description &gt;</span>
+    <span class="nt">metric</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; 0-4294967295 &gt;</span>
   <span class="p p-Indicator">-</span> <span class="nt">destination_address_prefix</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv6_network/Mask &gt;</span>
     <span class="nt">gateway</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv6_address &gt;</span>
 </code></pre></div>
@@ -2986,7 +2992,7 @@
       <span class="nt">summary_only</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
       <span class="nt">attribute_map</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>
       <span class="nt">match_map</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>
-      <span class="nt">advertise_only</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+      <span class="nt">advertise_only</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
   <span class="nt">redistribute_routes</span><span class="p">:</span>
     <span class="nt">&lt; route_type &gt;</span><span class="p">:</span>
       <span class="nt">route_map</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>

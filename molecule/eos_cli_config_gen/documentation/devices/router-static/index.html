@@ -19,7 +19,7 @@
     
     
       
-        <title>test2 - Arista AVD collection</title>
+        <title>router-static - Arista AVD collection</title>
       
     
     
@@ -54,7 +54,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#test2" class="md-skip">
+        <a href="#router-static" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              test2
+              router-static
             
           </span>
         </div>
@@ -770,8 +770,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#test2" class="md-nav__link">
-    test2
+  <a href="#router-static" class="md-nav__link">
+    router-static
   </a>
   
 </li>
@@ -1032,13 +1032,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#internal-vlan-allocation-policy-configuration" class="md-nav__link">
-    Internal VLAN Allocation Policy Configuration
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1048,26 +1041,6 @@
   <a href="#vlans" class="md-nav__link">
     VLANs
   </a>
-  
-    <nav class="md-nav" aria-label="VLANs">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vlans-summary" class="md-nav__link">
-    VLANs Summary
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vlans-device-configuration" class="md-nav__link">
-    VLANs Device Configuration
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1185,6 +1158,53 @@
   <a href="#static-routes" class="md-nav__link">
     Static Routes
   </a>
+  
+    <nav class="md-nav" aria-label="Static Routes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#static-routes-summary" class="md-nav__link">
+    Static Routes Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-routes-device-configuration" class="md-nav__link">
+    Static Routes Device Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ipv6-static-routes" class="md-nav__link">
+    IPv6 Static Routes
+  </a>
+  
+    <nav class="md-nav" aria-label="IPv6 Static Routes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ipv6-static-routes-summary" class="md-nav__link">
+    IPv6 Static Routes Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#static-routes-device-configuration_1" class="md-nav__link">
+    Static Routes Device Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1423,7 +1443,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/aristanetworks/ansible-avd/edit/master/docs/molecule/eos_cli_config_gen/documentation/devices/test2.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/aristanetworks/ansible-avd/edit/master/docs/molecule/eos_cli_config_gen/documentation/devices/router-static.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                   </a>
                 
@@ -1431,9 +1451,9 @@
                   
                 
                 
-                  <h1>test2</h1>
+                  <h1>router-static</h1>
                 
-                <h2 id="test2">test2<a class="headerlink" href="#test2" title="Permanent link">#</a></h2>
+                <h2 id="router-static">router-static<a class="headerlink" href="#router-static" title="Permanent link">#</a></h2>
 <h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="#management">Management</a><ul>
@@ -1621,6 +1641,7 @@ interface Management1
 <p>Spanning-Tree Not Defined</p>
 <h2 id="internal-vlan-allocation-policy">Internal VLAN Allocation Policy<a class="headerlink" href="#internal-vlan-allocation-policy" title="Permanent link">#</a></h2>
 <h4 id="internal-vlan-allocation-policy-summary">Internal VLAN Allocation Policy Summary<a class="headerlink" href="#internal-vlan-allocation-policy-summary" title="Permanent link">#</a></h4>
+<p><strong>Default Allocation Policy</strong></p>
 <table>
 <thead>
 <tr>
@@ -1633,46 +1654,12 @@ interface Management1
 <tr>
 <td>ascending</td>
 <td>1006</td>
-<td>1199</td>
+<td>4094</td>
 </tr>
 </tbody>
 </table>
-<h4 id="internal-vlan-allocation-policy-configuration">Internal VLAN Allocation Policy Configuration<a class="headerlink" href="#internal-vlan-allocation-policy-configuration" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code>!
-vlan internal order ascending range 1006 1199
-</code></pre></div>
 <h2 id="vlans">VLANs<a class="headerlink" href="#vlans" title="Permanent link">#</a></h2>
-<h4 id="vlans-summary">VLANs Summary<a class="headerlink" href="#vlans-summary" title="Permanent link">#</a></h4>
-<table>
-<thead>
-<tr>
-<th>VLAN ID</th>
-<th>Name</th>
-<th>Trunk Groups</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>110</td>
-<td>PR01-DMZ</td>
-<td>none</td>
-</tr>
-<tr>
-<td>3010</td>
-<td>MLAG_iBGP_TENANT_A_PROJECT01</td>
-<td>LEAF_PEER_L3</td>
-</tr>
-</tbody>
-</table>
-<h4 id="vlans-device-configuration">VLANs Device Configuration<a class="headerlink" href="#vlans-device-configuration" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code>!
-vlan 110
-   name PR01-DMZ
-!
-vlan 3010
-   name MLAG_iBGP_TENANT_A_PROJECT01
-   trunk group LEAF_PEER_L3
-</code></pre></div>
+<p>No VLANs defined</p>
 <h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h2>
 <h3 id="ethernet-interfaces">Ethernet Interfaces<a class="headerlink" href="#ethernet-interfaces" title="Permanent link">#</a></h3>
 <h3 id="port-channel-interfaces">Port-Channel Interfaces<a class="headerlink" href="#port-channel-interfaces" title="Permanent link">#</a></h3>
@@ -1722,6 +1709,146 @@ vlan 3010
 </tbody>
 </table>
 <h3 id="static-routes">Static Routes<a class="headerlink" href="#static-routes" title="Permanent link">#</a></h3>
+<h4 id="static-routes-summary">Static Routes Summary<a class="headerlink" href="#static-routes-summary" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>VRF</th>
+<th>Destination Prefix</th>
+<th>Next Hop IP</th>
+<th>Exit interface</th>
+<th>Administrative Distance</th>
+<th>Tag</th>
+<th>Route Name</th>
+<th>Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>default</td>
+<td>1.1.1.0/24</td>
+<td>10.1.1.1</td>
+<td>vlan101</td>
+<td>Default</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>default</td>
+<td>1.1.2.0/24</td>
+<td>10.1.1.1</td>
+<td>vlan101</td>
+<td>200</td>
+<td>666</td>
+<td>RT-TO-FAKE-DMZ</td>
+<td>-</td>
+</tr>
+<tr>
+<td>customer01</td>
+<td>1.2.1.0/24</td>
+<td>10.1.2.1</td>
+<td>vlan202</td>
+<td>Default</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>customer01</td>
+<td>1.2.2.0/24</td>
+<td>10.1.2.1</td>
+<td>vlan101</td>
+<td>201</td>
+<td>667</td>
+<td>RT-TO-FAKE-DMZ</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="static-routes-device-configuration">Static Routes Device Configuration<a class="headerlink" href="#static-routes-device-configuration" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>!
+ip route 1.1.1.0/24 Vlan101 10.1.1.1
+ip route 1.1.2.0/24 Vlan101 10.1.1.1 200 tag 666 name RT-TO-FAKE-DMZ
+ip route vrf customer01 1.2.1.0/24 Vlan202 10.1.2.1
+ip route vrf customer01 1.2.2.0/24 Vlan101 10.1.2.1 201 tag 667 name RT-TO-FAKE-DMZ
+</code></pre></div>
+<h3 id="ipv6-static-routes">IPv6 Static Routes<a class="headerlink" href="#ipv6-static-routes" title="Permanent link">#</a></h3>
+<h4 id="ipv6-static-routes-summary">IPv6 Static Routes Summary<a class="headerlink" href="#ipv6-static-routes-summary" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>VRF</th>
+<th>Destination Prefix</th>
+<th>Next Hop IP</th>
+<th>Exit interface</th>
+<th>Administrative Distance</th>
+<th>Tag</th>
+<th>Route Name</th>
+<th>Metric</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>default</td>
+<td>2a01:cb04:4e6:d300::/64</td>
+<td>2a01:cb04:4e6:d100::1</td>
+<td>vlan101</td>
+<td>Default</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>default</td>
+<td>2a01:cb04:4e6:d400::/64</td>
+<td>2a01:cb04:4e6:d100::1</td>
+<td>vlan101</td>
+<td>200</td>
+<td>666</td>
+<td>RT-TO-FAKE-DMZ</td>
+<td>-</td>
+</tr>
+<tr>
+<td>default</td>
+<td>2a01:cb04:4e6:d400::/64</td>
+<td>2a01:cb04:4e6:d100::1</td>
+<td>vlan101</td>
+<td>200</td>
+<td>666</td>
+<td>RT-TO-FAKE-DB-ZONE</td>
+<td>100</td>
+</tr>
+<tr>
+<td>customer01</td>
+<td>2a01:cb04:4e6:a300::/64</td>
+<td>2a01:cb04:4e6:100::1</td>
+<td>vlan101</td>
+<td>Default</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>customer01</td>
+<td>2a01:cb04:4e6:a400::/64</td>
+<td>2a01:cb04:4e6:100::1</td>
+<td>vlan101</td>
+<td>201</td>
+<td>667</td>
+<td>RT-TO-FAKE-DMZ</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h4 id="static-routes-device-configuration_1">Static Routes Device Configuration<a class="headerlink" href="#static-routes-device-configuration_1" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>!
+ipv6 route 2a01:cb04:4e6:d300::/64 Vlan101 2a01:cb04:4e6:d100::1
+ipv6 route 2a01:cb04:4e6:d400::/64 Vlan101 2a01:cb04:4e6:d100::1 200 tag 666 name RT-TO-FAKE-DMZ
+ipv6 route 2a01:cb04:4e6:d400::/64 Vlan101 2a01:cb04:4e6:d100::1 200 tag 666 name RT-TO-FAKE-DB-ZONE metric 100
+ipv6 route vrf customer01 2a01:cb04:4e6:a300::/64 Vlan101 2a01:cb04:4e6:100::1
+ipv6 route vrf customer01 2a01:cb04:4e6:a400::/64 Vlan101 2a01:cb04:4e6:100::1 201 tag 667 name RT-TO-FAKE-DMZ
+</code></pre></div>
 <h3 id="router-isis">Router ISIS<a class="headerlink" href="#router-isis" title="Permanent link">#</a></h3>
 <p>Router ISIS not defined</p>
 <h2 id="router-bgp">Router BGP<a class="headerlink" href="#router-bgp" title="Permanent link">#</a></h2>

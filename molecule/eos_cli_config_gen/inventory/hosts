@@ -10,6 +10,7 @@ logging
 loopbacks-interfaces
 mcast-pim
 none_configuration
+platform
 port-channel-interfaces
 prefix-lists
 route-maps
@@ -19,6 +20,7 @@ router-bgp-v4-evpn
 router-bgp-v4-v6-evpn
 router-isis
 router-ospf
+router-static
 sflow
 snmp_v3
 terminattr-cloud

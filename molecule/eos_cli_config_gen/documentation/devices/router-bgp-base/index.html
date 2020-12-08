@@ -1162,6 +1162,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ipv6-static-routes" class="md-nav__link">
+    IPv6 Static Routes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#router-isis" class="md-nav__link">
     Router ISIS
   </a>
@@ -1184,6 +1191,13 @@
           <li class="md-nav__item">
   <a href="#router-bgp-summary" class="md-nav__link">
     Router BGP Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bgp-route-aggregation" class="md-nav__link">
+    BGP Route Aggregation
   </a>
   
 </li>
@@ -1703,6 +1717,7 @@ interface Management1
 </tbody>
 </table>
 <h3 id="static-routes">Static Routes<a class="headerlink" href="#static-routes" title="Permanent link">#</a></h3>
+<h3 id="ipv6-static-routes">IPv6 Static Routes<a class="headerlink" href="#ipv6-static-routes" title="Permanent link">#</a></h3>
 <h3 id="router-isis">Router ISIS<a class="headerlink" href="#router-isis" title="Permanent link">#</a></h3>
 <p>Router ISIS not defined</p>
 <h2 id="router-bgp">Router BGP<a class="headerlink" href="#router-bgp" title="Permanent link">#</a></h2>
@@ -1745,6 +1760,45 @@ interface Management1
 </tr>
 </tbody>
 </table>
+<h4 id="bgp-route-aggregation">BGP Route Aggregation<a class="headerlink" href="#bgp-route-aggregation" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>Prefix</th>
+<th>AS Set</th>
+<th>Summary Only</th>
+<th>Attribute Map</th>
+<th>Match Map</th>
+<th>Advertise Only</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.1.1.0/24</td>
+<td>False</td>
+<td>False</td>
+<td>Not Defined</td>
+<td>Not Defined</td>
+<td>True</td>
+</tr>
+<tr>
+<td>1.12.1.0/24</td>
+<td>True</td>
+<td>True</td>
+<td>RM-ATTRIBUTE</td>
+<td>RM-MATCH</td>
+<td>True</td>
+</tr>
+<tr>
+<td>2.2.1.0/24</td>
+<td>False</td>
+<td>False</td>
+<td>Not Defined</td>
+<td>Not Defined</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
 <h4 id="router-bgp-evpn-address-family">Router BGP EVPN Address Family<a class="headerlink" href="#router-bgp-evpn-address-family" title="Permanent link">#</a></h4>
 <h5 id="router-bgp-evpn-mac-vrfs">Router BGP EVPN MAC-VRFs<a class="headerlink" href="#router-bgp-evpn-mac-vrfs" title="Permanent link">#</a></h5>
 <h5 id="router-bgp-evpn-vrfs">Router BGP EVPN VRFs<a class="headerlink" href="#router-bgp-evpn-vrfs" title="Permanent link">#</a></h5>
@@ -1757,6 +1811,9 @@ router bgp 65101
    graceful-restart restart-time 300
    graceful-restart
    maximum-paths 2 ecmp 2
+   aggregate-address 1.1.1.0/24 advertise-only
+   aggregate-address 1.12.1.0/24 as-set summary-only attribute-map RM-ATTRIBUTE match-map RM-MATCH advertise-only
+   aggregate-address 2.2.1.0/24
 </code></pre></div>
 <h3 id="router-bfd">Router BFD<a class="headerlink" href="#router-bfd" title="Permanent link">#</a></h3>
 <h4 id="router-bfd-multihop-summary">Router BFD Multihop Summary<a class="headerlink" href="#router-bfd-multihop-summary" title="Permanent link">#</a></h4>

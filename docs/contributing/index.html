@@ -1019,8 +1019,8 @@ title. The issue will be reviewed by a moderator after submission and the
 appropriate labels will be applied for categorization.</li>
 </ul>
 <h3 id="using-the-issue-tracker">Using the issue tracker<a class="headerlink" href="#using-the-issue-tracker" title="Permanent link">#</a></h3>
-<p>The issue tracker is the preferred channel for <a href="#bugs"><strong>bug reports</strong></a>,
-<a href="#features"><strong>features requests</strong></a> and <a href="#pull-requests"><strong>submitting pull
+<p>The issue tracker is the preferred channel for <a href="#reporting-bugs"><strong>bug reports</strong></a>,
+<a href="#feature-requests"><strong>features requests</strong></a> and <a href="#pull-requests"><strong>submitting pull
 requests</strong></a>, but please respect the following restrictions:</p>
 <ul>
 <li>Please <strong>do not</strong> use the issue tracker for personal support requests.</li>
@@ -1031,10 +1031,7 @@ requests</strong></a>, but please respect the following restrictions:</p>
 </ul>
 <h3 id="branches">Branches<a class="headerlink" href="#branches" title="Permanent link">#</a></h3>
 <ul>
-<li>Current development branch: <strong><code>releases/v1.0.x</code></strong></li>
-<li>Stable branch: <code>master</code></li>
-<li>Branch namespace for issues: <code>issues/&lt;IssueID&gt;-&lt;issue-name-shorten&gt;</code></li>
-<li>Branch namespace for Feature: <code>features/&lt;IssueID&gt;-&lt;issue-name-shorten&gt;</code></li>
+<li>Current development branch: <strong><code>devel</code></strong></li>
 <li>Branch namespace for release &amp; development: <code>releases/&lt;release_id&gt;</code></li>
 </ul>
 <h3 id="pull-requests">Pull requests<a class="headerlink" href="#pull-requests" title="Permanent link">#</a></h3>
@@ -1052,9 +1049,9 @@ any work that&rsquo;s already in progress.</li>
 <li>All major new functionality must include relevant tests where applicable.</li>
 </ul>
 <ul>
-<li>When submitting a pull request, please be sure to work off of the <code>releases/grant-v1.x</code>
-branch, rather than <code>master</code>. The <code>releases/grant-v1.x</code> branch is used for ongoing
-development, while <code>master</code> is used for tagging new stable releases.</li>
+<li>When submitting a pull request, please be sure to work off of the <code>devel</code>
+branch, rather than <code>master</code> (deprecated). The <code>devel</code> branch is used for ongoing
+development, while <code>releases/*</code> are used for tagging new stable releases.</li>
 </ul>
 <ul>
 <li>All code submissions should meet the following criteria (CI will enforce
@@ -1067,7 +1064,7 @@ these checks):<p>* YAML syntax is valid
 </ul>
 <p>Adhering to the following this process is the best way to get your work
 merged:</p>
-<ol>
+<ul>
 <li>
 <p><a href="http://help.github.com/fork-a-repo/">Fork</a> the repo, clone your fork,
    and configure the remotes:</p>
@@ -1081,40 +1078,48 @@ git clone https://github.com/&lt;your-username&gt;/ansible-avd
 git remote add upstream https://github.com/aristanetworks/ansible-avd.git
 </code></pre></div>
 </li>
+</ul>
+<ul>
 <li>
 <p>If you cloned a while ago, get the latest changes from upstream:</p>
 <div class="highlight"><pre><span></span><code>git checkout &lt;dev-branch&gt;
 git pull upstream &lt;dev-branch&gt;
 </code></pre></div>
 </li>
+</ul>
+<ul>
 <li>
 <p>Create a new topic branch (off the main project development branch) to
    contain your feature, change, or fix:</p>
 <div class="highlight"><pre><span></span><code>git checkout -b &lt;topic-branch-name&gt;
 </code></pre></div>
 </li>
-<li>
-<p>Commit your changes in logical chunks. Please adhere to these <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">git commit
+</ul>
+<ul>
+<li>Commit your changes in logical chunks. Please adhere to these <a href="http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">git commit
    message guidelines</a>
    or your code is unlikely be merged into the main project. Use Git&rsquo;s
-   <a href="https://help.github.com/articles/interactive-rebase">interactive rebase</a>
-   feature to tidy up your commits before making them public.</p>
-</li>
+   <a href="https://docs.github.com/en/free-pro-team@latest/github/using-git/about-git-rebase">git rebase</a>
+   feature to tidy up your commits before making them public.</li>
+</ul>
+<ul>
 <li>
 <p>Locally merge (or rebase) the upstream development branch into your topic branch:</p>
 <div class="highlight"><pre><span></span><code>git pull <span class="o">[</span>--rebase<span class="o">]</span> upstream &lt;dev-branch&gt;
 </code></pre></div>
 </li>
+</ul>
+<ul>
 <li>
 <p>Push your topic branch up to your fork:</p>
 <div class="highlight"><pre><span></span><code>git push origin &lt;topic-branch-name&gt;
 </code></pre></div>
 </li>
-<li>
-<p><a href="https://github.com/aristanetworks/ansible-avd/pulls">Open a Pull Request</a>
-    with a clear title and description.</p>
-</li>
-</ol>
+</ul>
+<ul>
+<li><a href="https://github.com/aristanetworks/ansible-avd/pulls">Open a Pull Request</a>
+    with a clear title and description.</li>
+</ul>
                 
               
               

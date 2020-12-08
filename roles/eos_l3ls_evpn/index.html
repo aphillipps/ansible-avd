@@ -1479,6 +1479,13 @@ Default values, are stored in the role defaults <a href="defaults/main.yml">main
   <span class="nt">leaf_peer_l3</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_network/Mask &gt;</span>
   <span class="nt">mlag_peer</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_network/Mask &gt;</span>
 
+<span class="c1"># BGP multi-path</span>
+<span class="c1"># If not defined these values will be equal by default to the number of spines in the fabric</span>
+<span class="c1"># If defined the values defined will both be applied to leaf and spine switches</span>
+<span class="c1"># Note: these values are only relevant for an eBGP scenario</span>
+<span class="nt">bgp_maximum_paths</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;number_of_max_paths&gt;</span>
+<span class="nt">bgp_ecmp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;number_of_ecmp_paths&gt;</span>
+
 <span class="c1"># BGP peer groups encrypted password</span>
 <span class="c1"># IPv4_UNDERLAY_PEERS and MLAG_IPv4_UNDERLAY_PEER | Required when &lt; underlay_routing_protocol &gt; == BGP</span>
 <span class="c1"># EVPN_OVERLAY_PEERS | Required</span>

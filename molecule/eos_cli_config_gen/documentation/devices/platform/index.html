@@ -19,7 +19,7 @@
     
     
       
-        <title>ethernet-interfaces - Arista AVD collection</title>
+        <title>platform - Arista AVD collection</title>
       
     
     
@@ -54,7 +54,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#ethernet-interfaces" class="md-skip">
+        <a href="#platform" class="md-skip">
           Skip to content
         </a>
       
@@ -82,7 +82,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              ethernet-interfaces
+              platform
             
           </span>
         </div>
@@ -770,8 +770,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ethernet-interfaces" class="md-nav__link">
-    ethernet-interfaces
+  <a href="#platform" class="md-nav__link">
+    platform
   </a>
   
 </li>
@@ -1053,29 +1053,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#ethernet-interfaces_1" class="md-nav__link">
+  <a href="#ethernet-interfaces" class="md-nav__link">
     Ethernet Interfaces
   </a>
-  
-    <nav class="md-nav" aria-label="Ethernet Interfaces">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ethernet-interfaces-summary" class="md-nav__link">
-    Ethernet Interfaces Summary
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ethernet-interfaces-device-configuration" class="md-nav__link">
-    Ethernet Interfaces Device Configuration
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -1177,13 +1157,6 @@
           <li class="md-nav__item">
   <a href="#static-routes" class="md-nav__link">
     Static Routes
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ipv6-static-routes" class="md-nav__link">
-    IPv6 Static Routes
   </a>
   
 </li>
@@ -1378,9 +1351,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#platform" class="md-nav__link">
+  <a href="#platform_1" class="md-nav__link">
     Platform
   </a>
+  
+    <nav class="md-nav" aria-label="Platform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#platform_2" class="md-nav__link">
+    Platform
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#platform-configuration" class="md-nav__link">
+    Platform Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1423,7 +1416,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/aristanetworks/ansible-avd/edit/master/docs/molecule/eos_cli_config_gen/documentation/devices/ethernet-interfaces.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/aristanetworks/ansible-avd/edit/master/docs/molecule/eos_cli_config_gen/documentation/devices/platform.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" /></svg>
                   </a>
                 
@@ -1431,9 +1424,9 @@
                   
                 
                 
-                  <h1>ethernet-interfaces</h1>
+                  <h1>platform</h1>
                 
-                <h2 id="ethernet-interfaces">ethernet-interfaces<a class="headerlink" href="#ethernet-interfaces" title="Permanent link">#</a></h2>
+                <h2 id="platform">platform<a class="headerlink" href="#platform" title="Permanent link">#</a></h2>
 <h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">#</a></h2>
 <ul>
 <li><a href="#management">Management</a><ul>
@@ -1641,86 +1634,7 @@ interface Management1
 <h2 id="vlans">VLANs<a class="headerlink" href="#vlans" title="Permanent link">#</a></h2>
 <p>No VLANs defined</p>
 <h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h2>
-<h3 id="ethernet-interfaces_1">Ethernet Interfaces<a class="headerlink" href="#ethernet-interfaces_1" title="Permanent link">#</a></h3>
-<h4 id="ethernet-interfaces-summary">Ethernet Interfaces Summary<a class="headerlink" href="#ethernet-interfaces-summary" title="Permanent link">#</a></h4>
-<table>
-<thead>
-<tr>
-<th>Interface</th>
-<th>Description</th>
-<th>MTU</th>
-<th>Type</th>
-<th>Mode</th>
-<th>Allowed VLANs (Trunk)</th>
-<th>Trunk Group</th>
-<th>VRF</th>
-<th>IP Address</th>
-<th>Channel-Group ID</th>
-<th>Channel-Group Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ethernet1</td>
-<td>P2P_LINK_TO_DC1-SPINE1_Ethernet1</td>
-<td>1500</td>
-<td>routed</td>
-<td>access</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>172.31.255.1/31</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Ethernet2</td>
-<td>SRV-POD02_Eth1</td>
-<td>1500</td>
-<td>switched</td>
-<td>trunk</td>
-<td>110-111,210-211</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>Ethernet6</td>
-<td>SRV-POD02_Eth1</td>
-<td>1500</td>
-<td>switched</td>
-<td>trunk</td>
-<td>110-111,210-211</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-</tbody>
-</table>
-<p>*Inherited from Port-Channel Interface</p>
-<h4 id="ethernet-interfaces-device-configuration">Ethernet Interfaces Device Configuration<a class="headerlink" href="#ethernet-interfaces-device-configuration" title="Permanent link">#</a></h4>
-<div class="highlight"><pre><span></span><code>!
-interface Ethernet1
-   description P2P_LINK_TO_DC1-SPINE1_Ethernet1
-   no switchport
-   ip address 172.31.255.1/31
-!
-interface Ethernet2
-   description SRV-POD02_Eth1
-   switchport trunk allowed vlan 110-111,210-211
-   switchport mode trunk
-   storm-control all level 10
-   storm-control broadcast level pps 500
-!
-interface Ethernet6
-   description SRV-POD02_Eth1
-   switchport trunk allowed vlan 110-111,210-211
-   switchport mode trunk
-</code></pre></div>
+<h3 id="ethernet-interfaces">Ethernet Interfaces<a class="headerlink" href="#ethernet-interfaces" title="Permanent link">#</a></h3>
 <h3 id="port-channel-interfaces">Port-Channel Interfaces<a class="headerlink" href="#port-channel-interfaces" title="Permanent link">#</a></h3>
 <p>No Port-Channels defined</p>
 <h3 id="loopback-interfaces">Loopback Interfaces<a class="headerlink" href="#loopback-interfaces" title="Permanent link">#</a></h3>
@@ -1768,7 +1682,6 @@ interface Ethernet6
 </tbody>
 </table>
 <h3 id="static-routes">Static Routes<a class="headerlink" href="#static-routes" title="Permanent link">#</a></h3>
-<h3 id="ipv6-static-routes">IPv6 Static Routes<a class="headerlink" href="#ipv6-static-routes" title="Permanent link">#</a></h3>
 <h3 id="router-isis">Router ISIS<a class="headerlink" href="#router-isis" title="Permanent link">#</a></h3>
 <p>Router ISIS not defined</p>
 <h2 id="router-bgp">Router BGP<a class="headerlink" href="#router-bgp" title="Permanent link">#</a></h2>
@@ -1824,8 +1737,15 @@ interface Ethernet6
 <p>No VRFs defined</p>
 <h2 id="virtual-source-nat">Virtual Source NAT<a class="headerlink" href="#virtual-source-nat" title="Permanent link">#</a></h2>
 <p>Virtual Source NAT is not defined</p>
-<h2 id="platform">Platform<a class="headerlink" href="#platform" title="Permanent link">#</a></h2>
-<p>No Platform parameters defined</p>
+<h2 id="platform_1">Platform<a class="headerlink" href="#platform_1" title="Permanent link">#</a></h2>
+<h4 id="platform_2">Platform<a class="headerlink" href="#platform_2" title="Permanent link">#</a></h4>
+<p>The platform trident forwarding-table partition is 2.</p>
+<h4 id="platform-configuration">Platform Configuration<a class="headerlink" href="#platform-configuration" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>!
+platform trident forwarding-table partition 2
+platform sand lag hardware-only
+platform sand lag mode 512x32
+</code></pre></div>
 <h2 id="router-l2-vpn">Router L2 VPN<a class="headerlink" href="#router-l2-vpn" title="Permanent link">#</a></h2>
 <p>Router L2 VPN not defined</p>
 <h2 id="ip-dhcp-relay">IP DHCP Relay<a class="headerlink" href="#ip-dhcp-relay" title="Permanent link">#</a></h2>
