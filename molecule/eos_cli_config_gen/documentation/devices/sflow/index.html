@@ -860,6 +860,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#management-api-gnmi" class="md-nav__link">
+    Management API GNMI
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1195,18 +1202,12 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#router-bgp" class="md-nav__link">
     Router BGP
   </a>
   
-    <nav class="md-nav" aria-label="Router BGP">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#router-bfd" class="md-nav__link">
@@ -1396,18 +1397,12 @@
     IP DHCP Relay
   </a>
   
-    <nav class="md-nav" aria-label="IP DHCP Relay">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#custom-templates" class="md-nav__link">
     Custom Templates
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1443,6 +1438,7 @@
 <li><a href="#domain-lookup">Domain Lookup</a></li>
 <li><a href="#ntp">NTP</a></li>
 <li><a href="#management-ssh">Management SSH</a></li>
+<li><a href="#management-api-gnmi">Management GNMI</a></li>
 </ul>
 </li>
 <li><a href="#authentication">Authentication</a><ul>
@@ -1581,6 +1577,8 @@ interface Management1
 <p>No NTP servers defined</p>
 <h3 id="management-ssh">Management SSH<a class="headerlink" href="#management-ssh" title="Permanent link">#</a></h3>
 <p>Management SSH is not defined</p>
+<h3 id="management-api-gnmi">Management API GNMI<a class="headerlink" href="#management-api-gnmi" title="Permanent link">#</a></h3>
+<p>Management API gnmi is not defined</p>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
 <h3 id="local-users">Local Users<a class="headerlink" href="#local-users" title="Permanent link">#</a></h3>
 <p>No Users Defined</p>
@@ -1709,7 +1707,7 @@ sflow run
 <h2 id="spanning-tree">Spanning Tree<a class="headerlink" href="#spanning-tree" title="Permanent link">#</a></h2>
 <p>Spanning-Tree Not Defined</p>
 <h2 id="internal-vlan-allocation-policy">Internal VLAN Allocation Policy<a class="headerlink" href="#internal-vlan-allocation-policy" title="Permanent link">#</a></h2>
-<h4 id="internal-vlan-allocation-policy-summary">Internal VLAN Allocation Policy Summary<a class="headerlink" href="#internal-vlan-allocation-policy-summary" title="Permanent link">#</a></h4>
+<h3 id="internal-vlan-allocation-policy-summary">Internal VLAN Allocation Policy Summary<a class="headerlink" href="#internal-vlan-allocation-policy-summary" title="Permanent link">#</a></h3>
 <p><strong>Default Allocation Policy</strong></p>
 <table>
 <thead>
@@ -1731,6 +1729,7 @@ sflow run
 <p>No VLANs defined</p>
 <h2 id="interfaces">Interfaces<a class="headerlink" href="#interfaces" title="Permanent link">#</a></h2>
 <h3 id="ethernet-interfaces">Ethernet Interfaces<a class="headerlink" href="#ethernet-interfaces" title="Permanent link">#</a></h3>
+<p>No Ethernet interface defined</p>
 <h3 id="port-channel-interfaces">Port-Channel Interfaces<a class="headerlink" href="#port-channel-interfaces" title="Permanent link">#</a></h3>
 <p>No Port-Channels defined</p>
 <h3 id="loopback-interfaces">Loopback Interfaces<a class="headerlink" href="#loopback-interfaces" title="Permanent link">#</a></h3>
@@ -1781,7 +1780,7 @@ sflow run
 <h3 id="ipv6-static-routes">IPv6 Static Routes<a class="headerlink" href="#ipv6-static-routes" title="Permanent link">#</a></h3>
 <h3 id="router-isis">Router ISIS<a class="headerlink" href="#router-isis" title="Permanent link">#</a></h3>
 <p>Router ISIS not defined</p>
-<h2 id="router-bgp">Router BGP<a class="headerlink" href="#router-bgp" title="Permanent link">#</a></h2>
+<h3 id="router-bgp">Router BGP<a class="headerlink" href="#router-bgp" title="Permanent link">#</a></h3>
 <p>Router BGP not defined</p>
 <h3 id="router-bfd">Router BFD<a class="headerlink" href="#router-bfd" title="Permanent link">#</a></h3>
 <h4 id="router-bfd-multihop-summary">Router BFD Multihop Summary<a class="headerlink" href="#router-bfd-multihop-summary" title="Permanent link">#</a></h4>
@@ -1804,6 +1803,7 @@ sflow run
 <p>*No device configuration required - default values</p>
 <h2 id="multicast">Multicast<a class="headerlink" href="#multicast" title="Permanent link">#</a></h2>
 <h3 id="ip-igmp-snooping">IP IGMP Snooping<a class="headerlink" href="#ip-igmp-snooping" title="Permanent link">#</a></h3>
+<p>No IP IGMP configuration</p>
 <h3 id="router-multicast">Router Multicast<a class="headerlink" href="#router-multicast" title="Permanent link">#</a></h3>
 <p>Routing multicast not defined</p>
 <h3 id="router-pim-sparse-mode">Router PIM Sparse Mode<a class="headerlink" href="#router-pim-sparse-mode" title="Permanent link">#</a></h3>
@@ -1840,7 +1840,7 @@ sflow run
 <p>Router L2 VPN not defined</p>
 <h2 id="ip-dhcp-relay">IP DHCP Relay<a class="headerlink" href="#ip-dhcp-relay" title="Permanent link">#</a></h2>
 <p>IP DHCP Relay not defined</p>
-<h3 id="custom-templates">Custom Templates<a class="headerlink" href="#custom-templates" title="Permanent link">#</a></h3>
+<h2 id="custom-templates">Custom Templates<a class="headerlink" href="#custom-templates" title="Permanent link">#</a></h2>
 <p>No Custom Templates Defined</p>
                 
               

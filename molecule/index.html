@@ -932,9 +932,9 @@ $ molecule cleanup --scenario-name &lt;scenario-name&gt;
 </ul>
 <p>When you update a template in <code>eos_cli_config_gen</code>, you should report a test case in molecule scenario <a href="./eos_cli_config_gen/"><code>ansible_collections/arista/avd/molecule/eos_cli_config_gen</code></a>.</p>
 <ol>
-<li>Create or update a file related to uupdated section under <code>inventory/host_vars</code></li>
+<li>Create or update a file related to updated section under <code>inventory/host_vars</code></li>
 <li>If section is new, update inventory file to add a new host. Host SHALL be the name of your section and also file in your <code>host_vars</code></li>
-<li>Run molecule scenario to generate artefacts:</li>
+<li>Run molecule scenario to generate artifacts:</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="c1"># Move to AVD collection</span>
 $ <span class="nb">cd</span> ansible_collections/arista/avd/
@@ -943,7 +943,7 @@ $ <span class="nb">cd</span> ansible_collections/arista/avd/
 $ molecule <span class="nb">test</span> --scenario-name eos_cli_config_gen
 </code></pre></div>
 <ol>
-<li>Commit artefacts. They will be used by CI to validate their is no change in the future.</li>
+<li>Commit artifacts. They will be used by CI to validate their is no change in the future.</li>
 </ol>
 <div class="highlight"><pre><span></span><code>$ git commit -m <span class="s1">&#39;Upload artefact for issue #...&#39;</span> molecule/eos_cli_config_gen
 </code></pre></div>
@@ -968,24 +968,24 @@ $ molecule <span class="nb">test</span> --scenario-name eos_cli_config_gen
 $ <span class="nb">cd</span> ansible_collections/arista/avd/
 
 <span class="c1"># Copy existing molecule scenario</span>
-$ cp -r molecule/evpn_underlay_isis_overlay_ebgp molecule/evpn_underlay_&lt;underlay-protocole&gt;_overlay_&lt;overlay-protocol&gt;
+$ cp -r molecule/evpn_underlay_isis_overlay_ebgp molecule/evpn_underlay_&lt;underlay-protocol&gt;_overlay_&lt;overlay-protocol&gt;
 </code></pre></div>
 <ol>
-<li>Edit files from your scneario&rsquo;s inventory</li>
+<li>Edit files from your scenario&rsquo;s inventory</li>
 </ol>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> molecule/evpn_underlay_&lt;underlay-protocole&gt;_overlay_&lt;overlay-protocol&gt;/inventory
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> molecule/evpn_underlay_&lt;underlay-protocol&gt;_overlay_&lt;overlay-protocol&gt;/inventory
 
 <span class="c1"># Edit group_vars</span>
 $ vim group_vars/DC1_FABRIC.yml
 </code></pre></div>
 <ol>
-<li>Run your molecle scenario for validation</li>
+<li>Run your molecule scenario for validation</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="c1"># Move to AVD collection</span>
 $ <span class="nb">cd</span> ../../../
 
 <span class="c1"># Run Molecule scenario</span>
-$ molecule <span class="nb">test</span> --scenario-name evpn_underlay_&lt;underlay-protocole&gt;_overlay_&lt;overlay-protocol&gt;
+$ molecule <span class="nb">test</span> --scenario-name evpn_underlay_&lt;underlay-protocol&gt;_overlay_&lt;overlay-protocol&gt;
 </code></pre></div>
 <ol>
 <li>Edit CI file to include your scenario</li>
@@ -1002,7 +1002,7 @@ $ molecule <span class="nb">test</span> --scenario-name evpn_underlay_&lt;underl
           <span class="p p-Indicator">-</span> <span class="s">&#39;evpn_underlay_ebgp_overlay_ebgp&#39;</span>
           <span class="p p-Indicator">-</span> <span class="s">&#39;evpn_underlay_ospf_overlay_ebgp&#39;</span>
           <span class="p p-Indicator">-</span> <span class="s">&#39;evpn_underlay_isis_overlay_ebgp&#39;</span>
-          <span class="p p-Indicator">-</span> <span class="s">&#39;evpn_underlay_&lt;underlay-protocole&gt;_overlay_&lt;overlay-protocol&gt;&#39;</span>
+          <span class="p p-Indicator">-</span> <span class="s">&#39;evpn_underlay_&lt;underlay-protocol&gt;_overlay_&lt;overlay-protocol&gt;&#39;</span>
           <span class="p p-Indicator">-</span> <span class="s">&#39;upgrade_v1.0_to_v1.1&#39;</span>
 </code></pre></div>
 <p>Once you are ready, commit your change and push to Github.</p>
