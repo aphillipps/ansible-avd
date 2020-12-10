@@ -867,6 +867,40 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#management-api-http" class="md-nav__link">
+    Management API HTTP
+  </a>
+  
+    <nav class="md-nav" aria-label="Management API HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#management-api-http-summary" class="md-nav__link">
+    Management API HTTP Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#management-api-vrf-access" class="md-nav__link">
+    Management API VRF Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#management-api-http-configuration" class="md-nav__link">
+    Management API HTTP Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1439,6 +1473,7 @@
 <li><a href="#ntp">NTP</a></li>
 <li><a href="#management-ssh">Management SSH</a></li>
 <li><a href="#management-api-gnmi">Management GNMI</a></li>
+<li><a href="#Management-api-http">Management API</a></li>
 </ul>
 </li>
 <li><a href="#authentication">Authentication</a><ul>
@@ -1588,6 +1623,49 @@ management ssh
 </code></pre></div>
 <h3 id="management-api-gnmi">Management API GNMI<a class="headerlink" href="#management-api-gnmi" title="Permanent link">#</a></h3>
 <p>Management API gnmi is not defined</p>
+<h3 id="management-api-http">Management API HTTP<a class="headerlink" href="#management-api-http" title="Permanent link">#</a></h3>
+<h4 id="management-api-http-summary">Management API HTTP Summary<a class="headerlink" href="#management-api-http-summary" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>HTTP</th>
+<th>HTTPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>True</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<h4 id="management-api-vrf-access">Management API VRF Access<a class="headerlink" href="#management-api-vrf-access" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>VRF Name</th>
+<th>IPv4 ACL</th>
+<th>IPv6 ACL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mgt</td>
+<td>ACL-API</td>
+<td>Not defined</td>
+</tr>
+</tbody>
+</table>
+<h4 id="management-api-http-configuration">Management API HTTP Configuration<a class="headerlink" href="#management-api-http-configuration" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>!
+management api http-commands
+   protocol http
+   no shutdown
+   !
+   vrf mgt
+      no shutdown
+      ip access-group ACL-API
+</code></pre></div>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
 <h3 id="local-users">Local Users<a class="headerlink" href="#local-users" title="Permanent link">#</a></h3>
 <p>No Users Defined</p>

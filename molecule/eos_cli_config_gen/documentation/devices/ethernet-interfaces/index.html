@@ -867,6 +867,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#management-api-http" class="md-nav__link">
+    Management API HTTP
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1439,6 +1446,7 @@
 <li><a href="#ntp">NTP</a></li>
 <li><a href="#management-ssh">Management SSH</a></li>
 <li><a href="#management-api-gnmi">Management GNMI</a></li>
+<li><a href="#Management-api-http">Management API</a></li>
 </ul>
 </li>
 <li><a href="#authentication">Authentication</a><ul>
@@ -1579,6 +1587,8 @@ interface Management1
 <p>Management SSH is not defined</p>
 <h3 id="management-api-gnmi">Management API GNMI<a class="headerlink" href="#management-api-gnmi" title="Permanent link">#</a></h3>
 <p>Management API gnmi is not defined</p>
+<h3 id="management-api-http">Management API HTTP<a class="headerlink" href="#management-api-http" title="Permanent link">#</a></h3>
+<p>Management API HTTP is not defined</p>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
 <h3 id="local-users">Local Users<a class="headerlink" href="#local-users" title="Permanent link">#</a></h3>
 <p>No Users Defined</p>
@@ -1713,6 +1723,7 @@ interface Ethernet2
    switchport mode trunk
    storm-control all level 10
    storm-control broadcast level pps 500
+   storm-control unknown-unicast level 1
 !
 interface Ethernet6
    description SRV-POD02_Eth1

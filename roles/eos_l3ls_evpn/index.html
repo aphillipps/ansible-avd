@@ -2311,6 +2311,21 @@ The variables should be applied to all devices in the fabric.</p>
     <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; access | dot1q-tunnel | trunk &gt;</span>
     <span class="nt">vlans</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vlans as string &gt;</span>
 
+    <span class="c1"># Storm control settings applied on port toward server | Optional</span>
+    <span class="nt">storm_control</span><span class="p">:</span>
+      <span class="nt">all</span><span class="p">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Configure maximum storm-control level &gt;</span>
+        <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; percent | pps &gt;</span>
+      <span class="nt">broadcast</span><span class="p">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Configure maximum storm-control level &gt;</span>
+        <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; percent | pps &gt;</span>
+      <span class="nt">multicast</span><span class="p">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Configure maximum storm-control level &gt;</span>
+        <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; percent | pps &gt;</span>
+      <span class="nt">unknown_unicast</span><span class="p">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; Configure maximum storm-control level &gt;</span>
+        <span class="nt">unit</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; percent | pps &gt;</span>
+
 <span class="c1"># Dictionary of servers, a device attaching to a L2 switched port(s)</span>
 <span class="nt">servers</span><span class="p">:</span>
 

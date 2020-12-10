@@ -900,6 +900,47 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#management-api-gnmi" class="md-nav__link">
+    Management API GNMI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#management-api-http" class="md-nav__link">
+    Management API HTTP
+  </a>
+  
+    <nav class="md-nav" aria-label="Management API HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#management-api-http-summary" class="md-nav__link">
+    Management API HTTP Summary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#management-api-vrf-access" class="md-nav__link">
+    Management API VRF Access
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#management-api-http-configuration" class="md-nav__link">
+    Management API HTTP Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1389,24 +1430,25 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#ipv6-static-routes" class="md-nav__link">
+    IPv6 Static Routes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#router-isis" class="md-nav__link">
     Router ISIS
   </a>
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#router-bgp" class="md-nav__link">
     Router BGP
   </a>
   
-    <nav class="md-nav" aria-label="Router BGP">
-      <ul class="md-nav__list">
+</li>
         
           <li class="md-nav__item">
   <a href="#router-bfd" class="md-nav__link">
@@ -1643,18 +1685,12 @@
     IP DHCP Relay
   </a>
   
-    <nav class="md-nav" aria-label="IP DHCP Relay">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#custom-templates" class="md-nav__link">
     Custom Templates
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1690,6 +1726,8 @@
 <li><a href="#domain-lookup">Domain Lookup</a></li>
 <li><a href="#ntp">NTP</a></li>
 <li><a href="#management-ssh">Management SSH</a></li>
+<li><a href="#management-api-gnmi">Management GNMI</a></li>
+<li><a href="#Management-api-http">Management API</a></li>
 </ul>
 </li>
 <li><a href="#authentication">Authentication</a><ul>
@@ -1871,6 +1909,49 @@ ntp server vrf MGMT 192.168.200.5 prefer
 </code></pre></div>
 <h3 id="management-ssh">Management SSH<a class="headerlink" href="#management-ssh" title="Permanent link">#</a></h3>
 <p>Management SSH is not defined</p>
+<h3 id="management-api-gnmi">Management API GNMI<a class="headerlink" href="#management-api-gnmi" title="Permanent link">#</a></h3>
+<p>Management API gnmi is not defined</p>
+<h3 id="management-api-http">Management API HTTP<a class="headerlink" href="#management-api-http" title="Permanent link">#</a></h3>
+<h4 id="management-api-http-summary">Management API HTTP Summary<a class="headerlink" href="#management-api-http-summary" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>HTTP</th>
+<th>HTTPS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>default</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<h4 id="management-api-vrf-access">Management API VRF Access<a class="headerlink" href="#management-api-vrf-access" title="Permanent link">#</a></h4>
+<table>
+<thead>
+<tr>
+<th>VRF Name</th>
+<th>IPv4 ACL</th>
+<th>IPv6 ACL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MGMT</td>
+<td>Not defined</td>
+<td>Not defined</td>
+</tr>
+</tbody>
+</table>
+<h4 id="management-api-http-configuration">Management API HTTP Configuration<a class="headerlink" href="#management-api-http-configuration" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code>!
+management api http-commands
+   no shutdown
+   !
+   vrf MGMT
+      no shutdown
+</code></pre></div>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h2>
 <h3 id="local-users">Local Users<a class="headerlink" href="#local-users" title="Permanent link">#</a></h3>
 <h4 id="local-users-summary">Local Users Summary<a class="headerlink" href="#local-users-summary" title="Permanent link">#</a></h4>
@@ -1962,7 +2043,7 @@ daemon TerminAttr
 <h3 id="event-handler">Event Handler<a class="headerlink" href="#event-handler" title="Permanent link">#</a></h3>
 <p>No Event Handler Defined</p>
 <h2 id="mlag">MLAG<a class="headerlink" href="#mlag" title="Permanent link">#</a></h2>
-<h4 id="mlag-summary">MLAG Summary<a class="headerlink" href="#mlag-summary" title="Permanent link">#</a></h4>
+<h3 id="mlag-summary">MLAG Summary<a class="headerlink" href="#mlag-summary" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -1982,7 +2063,7 @@ daemon TerminAttr
 </tbody>
 </table>
 <p>Dual primary detection is enabled. The detection delay is 5 seconds.</p>
-<h4 id="mlag-device-configuration">MLAG Device Configuration<a class="headerlink" href="#mlag-device-configuration" title="Permanent link">#</a></h4>
+<h3 id="mlag-device-configuration">MLAG Device Configuration<a class="headerlink" href="#mlag-device-configuration" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code>!
 mlag configuration
    domain-id DC1_L2LEAF2
@@ -1995,7 +2076,7 @@ mlag configuration
    reload-delay non-mlag 330
 </code></pre></div>
 <h2 id="spanning-tree">Spanning Tree<a class="headerlink" href="#spanning-tree" title="Permanent link">#</a></h2>
-<h4 id="spanning-tree-summary">Spanning Tree Summary<a class="headerlink" href="#spanning-tree-summary" title="Permanent link">#</a></h4>
+<h3 id="spanning-tree-summary">Spanning Tree Summary<a class="headerlink" href="#spanning-tree-summary" title="Permanent link">#</a></h3>
 <p>Mode: mstp</p>
 <p><strong>MSTP Instance and Priority</strong>:</p>
 <table>
@@ -2012,14 +2093,14 @@ mlag configuration
 </tr>
 </tbody>
 </table>
-<h4 id="spanning-tree-device-configuration">Spanning Tree Device Configuration<a class="headerlink" href="#spanning-tree-device-configuration" title="Permanent link">#</a></h4>
+<h3 id="spanning-tree-device-configuration">Spanning Tree Device Configuration<a class="headerlink" href="#spanning-tree-device-configuration" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code>!
 spanning-tree mode mstp
-no spanning-tree vlan-id 4094
+no spanning-tree vlan-id 4093-4094
 spanning-tree mst 0 priority 16384
 </code></pre></div>
 <h2 id="internal-vlan-allocation-policy">Internal VLAN Allocation Policy<a class="headerlink" href="#internal-vlan-allocation-policy" title="Permanent link">#</a></h2>
-<h4 id="internal-vlan-allocation-policy-summary">Internal VLAN Allocation Policy Summary<a class="headerlink" href="#internal-vlan-allocation-policy-summary" title="Permanent link">#</a></h4>
+<h3 id="internal-vlan-allocation-policy-summary">Internal VLAN Allocation Policy Summary<a class="headerlink" href="#internal-vlan-allocation-policy-summary" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -2036,12 +2117,12 @@ spanning-tree mst 0 priority 16384
 </tr>
 </tbody>
 </table>
-<h4 id="internal-vlan-allocation-policy-configuration">Internal VLAN Allocation Policy Configuration<a class="headerlink" href="#internal-vlan-allocation-policy-configuration" title="Permanent link">#</a></h4>
+<h3 id="internal-vlan-allocation-policy-configuration">Internal VLAN Allocation Policy Configuration<a class="headerlink" href="#internal-vlan-allocation-policy-configuration" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code>!
 vlan internal order ascending range 1006 1199
 </code></pre></div>
 <h2 id="vlans">VLANs<a class="headerlink" href="#vlans" title="Permanent link">#</a></h2>
-<h4 id="vlans-summary">VLANs Summary<a class="headerlink" href="#vlans-summary" title="Permanent link">#</a></h4>
+<h3 id="vlans-summary">VLANs Summary<a class="headerlink" href="#vlans-summary" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -2133,7 +2214,7 @@ vlan internal order ascending range 1006 1199
 </tr>
 </tbody>
 </table>
-<h4 id="vlans-device-configuration">VLANs Device Configuration<a class="headerlink" href="#vlans-device-configuration" title="Permanent link">#</a></h4>
+<h3 id="vlans-device-configuration">VLANs Device Configuration<a class="headerlink" href="#vlans-device-configuration" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code>!
 vlan 110
    name Tenant_A_OP_Zone_1
@@ -2379,7 +2460,12 @@ no ip routing vrf MGMT
 <tr>
 <th>VRF</th>
 <th>Destination Prefix</th>
-<th>Fowarding Address / Interface</th>
+<th>Next Hop IP</th>
+<th>Exit interface</th>
+<th>Administrative Distance</th>
+<th>Tag</th>
+<th>Route Name</th>
+<th>Metric</th>
 </tr>
 </thead>
 <tbody>
@@ -2387,6 +2473,11 @@ no ip routing vrf MGMT
 <td>MGMT</td>
 <td>0.0.0.0/0</td>
 <td>192.168.200.5</td>
+<td>-</td>
+<td>Default</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
 </tr>
 </tbody>
 </table>
@@ -2394,9 +2485,10 @@ no ip routing vrf MGMT
 <div class="highlight"><pre><span></span><code>!
 ip route vrf MGMT 0.0.0.0/0 192.168.200.5
 </code></pre></div>
+<h3 id="ipv6-static-routes">IPv6 Static Routes<a class="headerlink" href="#ipv6-static-routes" title="Permanent link">#</a></h3>
 <h3 id="router-isis">Router ISIS<a class="headerlink" href="#router-isis" title="Permanent link">#</a></h3>
 <p>Router ISIS not defined</p>
-<h2 id="router-bgp">Router BGP<a class="headerlink" href="#router-bgp" title="Permanent link">#</a></h2>
+<h3 id="router-bgp">Router BGP<a class="headerlink" href="#router-bgp" title="Permanent link">#</a></h3>
 <p>Router BGP not defined</p>
 <h3 id="router-bfd">Router BFD<a class="headerlink" href="#router-bfd" title="Permanent link">#</a></h3>
 <h4 id="router-bfd-multihop-summary">Router BFD Multihop Summary<a class="headerlink" href="#router-bfd-multihop-summary" title="Permanent link">#</a></h4>
@@ -2469,7 +2561,7 @@ no ip igmp snooping vlan 120
 <h3 id="ipv6-extended-access-lists">IPv6 Extended Access-lists<a class="headerlink" href="#ipv6-extended-access-lists" title="Permanent link">#</a></h3>
 <p>IPv6 Extended Access-lists not defined</p>
 <h2 id="vrf-instances">VRF Instances<a class="headerlink" href="#vrf-instances" title="Permanent link">#</a></h2>
-<h4 id="vrf-instances-summary">VRF Instances Summary<a class="headerlink" href="#vrf-instances-summary" title="Permanent link">#</a></h4>
+<h3 id="vrf-instances-summary">VRF Instances Summary<a class="headerlink" href="#vrf-instances-summary" title="Permanent link">#</a></h3>
 <table>
 <thead>
 <tr>
@@ -2484,7 +2576,7 @@ no ip igmp snooping vlan 120
 </tr>
 </tbody>
 </table>
-<h4 id="vrf-instances-device-configuration">VRF Instances Device Configuration<a class="headerlink" href="#vrf-instances-device-configuration" title="Permanent link">#</a></h4>
+<h3 id="vrf-instances-device-configuration">VRF Instances Device Configuration<a class="headerlink" href="#vrf-instances-device-configuration" title="Permanent link">#</a></h3>
 <div class="highlight"><pre><span></span><code>!
 vrf instance MGMT
 </code></pre></div>
@@ -2496,7 +2588,7 @@ vrf instance MGMT
 <p>Router L2 VPN not defined</p>
 <h2 id="ip-dhcp-relay">IP DHCP Relay<a class="headerlink" href="#ip-dhcp-relay" title="Permanent link">#</a></h2>
 <p>IP DHCP Relay not defined</p>
-<h3 id="custom-templates">Custom Templates<a class="headerlink" href="#custom-templates" title="Permanent link">#</a></h3>
+<h2 id="custom-templates">Custom Templates<a class="headerlink" href="#custom-templates" title="Permanent link">#</a></h2>
 <p>No Custom Templates Defined</p>
                 
               
