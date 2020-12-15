@@ -799,6 +799,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#default-filter" class="md-nav__link">
+    default filter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#is_valid-filter" class="md-nav__link">
+    is_valid filter
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -880,10 +894,29 @@
 <span class="cp">{{</span> <span class="nv">natural_sorted_item</span> <span class="cp">}}</span><span class="x"></span>
 <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span><span class="x"></span>
 </code></pre></div>
+<h4 id="default-filter"><strong>default filter</strong><a class="headerlink" href="#default-filter" title="Permanent link">#</a></h4>
+<p>The <code>default</code> filter can provide the same basic capability as the builtin <code>default</code> filter. It will return the input value only if it is valid and if not, provide a default value instead. Our custom filter requires a value to be <code>not undefined</code> and <code>not None</code> to pass through.
+Furthermore the filter allows multiple default values as arguments, which will undergo the same validation one after one until we find a valid default value.
+As a last resort the filter will return None.</p>
+<p>To use this filter:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">{{</span> <span class="nv">variable</span> <span class="o">|</span> <span class="nf">arista</span><span class="nv">.avd.default</span><span class="o">(</span> <span class="nv">default_value_1</span> <span class="o">,</span> <span class="nv">default_value_2</span> <span class="err">...</span> <span class="o">)</span> <span class="cp">}}</span><span class="x"></span>
+</code></pre></div>
+<h4 id="is_valid-filter"><strong>is_valid filter</strong><a class="headerlink" href="#is_valid-filter" title="Permanent link">#</a></h4>
+<p>The <code>is_valid</code> will return <code>False</code> if the passed value is <code>Undefined</code> or <code>None</code>. Else it will return <code>True</code>.</p>
+<p>To use this filter:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">if</span> <span class="nv">variable</span> <span class="o">|</span> <span class="nf">arista</span><span class="nv">.avd.is_valid</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">text : </span><span class="cp">{{</span> <span class="nv">variable</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</code></pre></div>
+<p>The <code>is_valid</code> filter can be useful as an alternative to:</p>
+<div class="highlight"><pre><span></span><code><span class="cp">{%</span> <span class="k">if</span> <span class="nv">variable</span> <span class="k">is</span> <span class="nf">defined</span> <span class="k">and</span> <span class="nv">variable</span> <span class="k">is</span> <span class="k">not</span> <span class="nf">none</span> <span class="cp">%}</span><span class="x"></span>
+<span class="x">text : </span><span class="cp">{{</span> <span class="nv">variable</span> <span class="cp">}}</span><span class="x"></span>
+<span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</code></pre></div>
 <h3 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">#</a></h3>
 <h4 id="inventory-to-cloudvision-containers"><strong>Inventory to CloudVision Containers</strong><a class="headerlink" href="#inventory-to-cloudvision-containers" title="Permanent link">#</a></h4>
 <p>The <code>inventory_to_container</code> module provides following capabilities:
-- Transform inventory groups into CloudVision containers topology. 
+- Transform inventory groups into CloudVision containers topology.
 - Create list of configlets definition.</p>
 <p>It saves everything in a <code>YAML</code> file using <strong><code>destination</code></strong> keyword.</p>
 <p>It is a module to build structure of data to configure on a CloudVision server. Output is ready to be passed to <a href="https://github.com/aristanetworks/ansible-cvp/"><code>arista.cvp</code></a> to configure <strong>CloudVision</strong>.</p>

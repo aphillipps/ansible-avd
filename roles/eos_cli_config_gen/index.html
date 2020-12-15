@@ -2575,6 +2575,9 @@
     <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; routed | switched &gt;</span>
     <span class="nt">vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vrf_name &gt;</span>
     <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+    <span class="nt">ip_address_secondaries</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
     <span class="nt">ipv6_enable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">ipv6_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv6_address/Mask &gt;</span>
     <span class="nt">ipv6_address_link_local</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; link_local_IPv6_address/Mask &gt;</span>
@@ -2648,6 +2651,9 @@
     <span class="nt">shutdown</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vrf_name &gt;</span>
     <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+    <span class="nt">ip_address_secondaries</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
     <span class="nt">ipv6_enable</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
     <span class="nt">ipv6_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv6_address/Mask &gt;</span>
     <span class="nt">ospf_area</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; ospf_area &gt;</span>
@@ -2678,9 +2684,10 @@
     <span class="nt">vrf</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; vrf_name &gt;</span>
     <span class="nt">arp_aging_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; arp_timeout &gt;</span>
     <span class="nt">ip_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
-    <span class="nt">ip_address_secondary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+    <span class="nt">ip_address_secondaries</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
     <span class="nt">ip_router_virtual_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address &gt;</span>
-    <span class="nt">ip_router_virtual_address_secondary</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address &gt;</span>
     <span class="nt">ip_address_virtual</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; IPv4_address/Mask &gt;</span>
     <span class="nt">ip_helpers</span><span class="p">:</span>
       <span class="nt">&lt; ip_helper_address_1 &gt;</span><span class="p">:</span>
@@ -3083,6 +3090,8 @@
         <span class="nt">prefix_list_out</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; prefix_list_name &gt;</span>
     <span class="nt">neighbors</span><span class="p">:</span>
       <span class="nt">&lt; neighbor_ip_address&gt;</span><span class="p">:</span>
+        <span class="nt">route_map_in</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>
+        <span class="nt">route_map_out</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; route_map_name &gt;</span>
         <span class="nt">activate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; true | false &gt;</span>
         <span class="nt">prefix_list_in</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; prefix_list_name &gt;</span>
         <span class="nt">prefix_list_out</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt; prefix_list_name &gt;</span>
